@@ -1,0 +1,18 @@
+---
+   - hosts: ubuntu
+#    connection: ask-pass
+     become: sudo
+     tasks:
+       - name: "apt check updates"
+         apt: 
+           name: apt-get update
+           update_cache: yes
+       
+       - name: "Network utils"
+         apt: name= {{ pkg }} state=latest
+           - net-tools
+           - iftop
+       - name: "Network resourses utils"
+         apt: name= {{ pkg }} state=latest
+           - freeipa-client
+           - glusterfs-client

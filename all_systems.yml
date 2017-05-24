@@ -1,6 +1,7 @@
 ---
-- hosts: all
-  connection: ask-pass
-  tasks:
-  - name: 'apt-get check updates'
-apt-get: name=* state=latest
+   - hosts: all
+#    connection: ask-pass
+     become: sudo
+     tasks:
+       - name: "apt check updates"
+         apt: name=* state=latest
