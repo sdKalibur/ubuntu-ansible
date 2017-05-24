@@ -1,0 +1,6 @@
+---
+- hosts: all
+  connection: ask-pass
+  tasks:
+  - name: 'apt-get check updates'
+apt-get: name=* state=latest
