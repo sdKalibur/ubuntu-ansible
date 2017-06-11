@@ -1,0 +1,14 @@
+---
+   - hosts: ubuntu
+     become: yes
+     #     ask_become_pass: yes
+     tasks:
+       - name: Ensure Aptitude is present
+         apt: name=aptitude state=present
+
+       - name: "Distribution upgrade"
+         apt: 
+           autoclean: yes
+           autoremove: yes
+           update_cache: yes
+           upgrade: dist
