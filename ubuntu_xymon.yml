@@ -1,0 +1,33 @@
+---
+   - hosts: ubuntu
+     become: yes
+     #     ask_become_pass: yes
+     tasks:
+       - name: "apt check updates"
+         apt: 
+         #           name: "apt-get update"
+           update_cache: yes
+           #         sudo: yes 
+       - name: "Install text editor"
+         apt: name=vim  state=latest
+
+       - name: "Network utils"
+         apt: name={{item}} state=latest
+         with_items:
+                 #    - net-tools
+           - iftop
+           - wireshark
+           - nmap
+         become: yes 
+       - name: "Network resourses utils"
+         apt: name={{item}} state=latest
+         with_items:
+           - freeipa-client
+           - glusterfs-client
+           - sl
+           - xterm
+       - name: "Security protection utils"
+         apt: name={{item}} state=latest
+         with_items:
+           - clamav
+           - firewalld
