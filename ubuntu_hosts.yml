@@ -22,6 +22,10 @@
            - iotop
            - vim
            - bash-completion
+           - exfat-utils
+           - exfat-fuse
+           - cifs-utils
+           - smbclient
 
        - name: "Network utils"
          apt: name={{item}} state=latest
