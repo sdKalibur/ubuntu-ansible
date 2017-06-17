@@ -1,18 +1,49 @@
 ---
    - hosts: ubuntu
-#    connection: ask-pass
-     become: sudo
+     become: yes
+     #     ask_become_pass: yes
      tasks:
+       - name: Ensure Aptitude is present
+         apt: name=aptitude state=present
+
        - name: "apt check updates"
          apt: 
-           name: apt-get update
+#           name: "apt-get update"
+           autoclean: yes
+           autoremove: yes
            update_cache: yes
-       
+           upgrade: full
+           #           upgrade: safe
+           #         sudo: yes 
+
+       - name: "Install utilities"
+         apt: name={{item}}  state=latest
+         with_items:
+           - iotop
+           - vim
+           - bash-completion
+
        - name: "Network utils"
-         apt: name= {{ pkg }} state=latest
-           - net-tools
+         apt: name={{item}} state=latest
+         with_items:
+                 #    - net-tools
            - iftop
+           - wireshark
+           - nmap
+           - network-manager
+         become: yes 
        - name: "Network resourses utils"
-         apt: name= {{ pkg }} state=latest
+         apt: name={{item}} state=latest
+         with_items:
            - freeipa-client
            - glusterfs-client
+           - sl
+           - xterm
+       - name: "Security protection utils"
+         apt: name={{item}} state=latest
+         with_items:
+           - clamav
+           - firewalld
+           - rsnapshot
+           - xymon-client
+           - cryptsetup
