@@ -1,0 +1,14 @@
+---
+   - hosts: kali-linux
+     become: yes
+     tasks: 
+       - name: Ensure Aptitude is present
+         apt: name=aptitude state=present
+
+       - name: "Hacking tools"
+         apt: name={{item}} state=latest
+         with_items:
+           - nmap      
+           - zenmap
+       - nmap
+
