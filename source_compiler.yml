@@ -1,0 +1,19 @@
+---
+   - hosts: kali-linux
+     become: yes
+     tasks: 
+       - name: Ensure Aptitude is present
+         apt: name=aptitude state=present
+
+       - name: "source compiling  tools"
+         apt: name={{item}} state=latest
+         with_items:
+           - linux-libc-dev
+           - fakeroot 
+           - build-essential
+           - kernel-wedge
+           - module-assistant
+           - linux-libc-dev
+           - schroot
+             #           - kernel-package
+
