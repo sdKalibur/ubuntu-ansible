@@ -1,0 +1,12 @@
+- hosts: gluster-servers
+  #     become: yes
+#     ask_become_pass: yes
+  tasks:
+    - name: "Gluster Cluster Servers"
+      #    - debug: msg="This only runs on Glusterfs Servers"
+         #  when: "'gluster-servers' in {{grouup_names}}"
+      apt: name={{item}} state=latest
+      with_items:
+        - glusterfs-server
+        - nfs-common
+        - nfs-kernel-server
