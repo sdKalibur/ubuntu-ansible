@@ -10,5 +10,4 @@
          with_items:
            - nmap      
            - zenmap
-       - nmap
 

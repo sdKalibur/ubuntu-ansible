@@ -21,12 +21,16 @@
          with_items:
            - iotop
            - vim
+           - sysstat
            - bash-completion
            - exfat-utils
            - exfat-fuse
            - cifs-utils
            - smbclient
-
+           - screen
+           - pv
+           - dconf-editor
+              
        - name: "Network utils"
          apt: name={{item}} state=latest
          with_items:
@@ -35,6 +39,9 @@
            - wireshark
            - nmap
            - network-manager
+           - samba
+           - mailutils
+           - mutt
          become: yes 
        - name: "Network resourses utils"
          apt: name={{item}} state=latest
@@ -51,3 +58,4 @@
            - rsnapshot
            - xymon-client
            - cryptsetup
+   - include: gluster-servers.yml
