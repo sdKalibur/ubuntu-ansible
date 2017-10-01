@@ -1,5 +1,3 @@
-# http://docs.ansible.com/ansible/latest/firewalld_module.html
-
 - hosts: gluster-servers
   tasks:
     - name: "Gluster Cluster Servers"
@@ -9,6 +7,4 @@
       with_items:
         - glusterfs-server
         - nfs-common
-        - nfs-kernel-serer
-    - name: "Gluster Firewall Rules"
-
+        - nfs-kernel-server
