@@ -9,6 +9,6 @@
       with_items:
         - glusterfs-server
         - nfs-common
-        - nfs-kernel-serer
-    - name: "Gluster Firewall Rules"
+        - nfs-kernel-server
+          #    - name: "Gluster Firewall Rules"
 

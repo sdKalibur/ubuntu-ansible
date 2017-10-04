@@ -58,4 +58,6 @@
            - rsnapshot
            - xymon-client
            - cryptsetup
-   - include: gluster-servers.yml
+   - include: 
+       - gluster-servers.yml
+       - devops_wk.yml
