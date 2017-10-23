@@ -1,0 +1,10 @@
+---
+   - hosts: mce
+     become: yes
+     tasks:
+       - name:  Hello
+         shell: 'hostname'
+
+   - hosts: mce
+     roles:
+       - kodi

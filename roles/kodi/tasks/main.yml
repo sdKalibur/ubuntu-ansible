@@ -1,0 +1,21 @@
+---
+- name: Install kodi
+  apt: name=kodi state=latest
+
+- name: Firewall config
+  # not support due to this module using python2
+  # firewalld: service={{item}} permanent=yes immediate=yes state=enabled
+  shell: "firewall-cmd --add-service={{item}} --permanent"
+  with_items:
+    - 'http'
+    - 'https'
+- name: Firewall ports allow
+  shell: "firewall-cmd --add-port={{item}} --permanent"
+  with_items:
+    - '8080/tcp'
+    - '8080/udp'
+      #notify: 
+      #- restart firewalld
+    #handlers:
+- name: restart firewalld
+  service: name=firewalld state=reloaded
