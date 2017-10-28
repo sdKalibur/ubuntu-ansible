@@ -8,13 +8,11 @@
 
        - name: "apt check updates"
          apt: 
-#           name: "apt-get update"
            autoclean: yes
            autoremove: yes
            update_cache: yes
            upgrade: full
            #           upgrade: safe
-           #         sudo: yes 
 
        - name: "Install utilities"
          apt: name={{item}}  state=latest
@@ -74,4 +72,3 @@
 
    - include: gluster-servers.yml
    - include: gluster_clients.yml
-     #   - include: devops_wk.yml
