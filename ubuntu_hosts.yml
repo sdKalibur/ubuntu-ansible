@@ -20,6 +20,7 @@
          apt: name={{item}}  state=latest
          with_items:
            - iotop
+           - at
            - vim
            - sysstat
            - bash-completion
@@ -47,7 +48,6 @@
          apt: name={{item}} state=latest
          with_items:
            - freeipa-client
-           - glusterfs-client
            - sl
            - xterm
        - name: "Security protection utils"
@@ -58,6 +58,20 @@
            - rsnapshot
            - xymon-client
            - cryptsetup
-   - include: 
-       - gluster-servers.yml
-       - devops_wk.yml
+       - name: "LAMP utils"
+         apt: name={{item}} state=latest
+         with_items:
+           - mariadb-client
+           - rhc
+       - name: update alternatives
+         #         alternatives: name={{item}} path={{item}}
+         shell: 'update-alternatives --set editor   /usr/bin/vim.basic'
+         with_items:
+           - { 'editor', '/usr/bin/vim' }
+             #           - { name: 'editor',path: '/usr/bin/vim' }
+         when: ansible_os_family == 'Debian'
+
+
+   - include: gluster-servers.yml
+   - include: gluster_clients.yml
+     #   - include: devops_wk.yml
