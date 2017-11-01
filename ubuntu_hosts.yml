@@ -69,6 +69,10 @@
              #           - { name: 'editor',path: '/usr/bin/vim' }
          when: ansible_os_family == 'Debian'
 
-
-   - include: gluster-servers.yml
-   - include: gluster_clients.yml
+   - hosts: all
+     roles: 
+       - gluster_clients
+       - kodi
+       - devops
+ 
+       #     - gluster-servers.yml

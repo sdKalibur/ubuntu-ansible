@@ -4,6 +4,10 @@
   with_items:
     - glusterfs-client
     - glusterfs-common
+
+- name: Volume mounts
+
+
 - name: Firewall config
   shell: "firewall-cmd --add-service={{item}} --permanent"
   with_items:
@@ -27,7 +31,9 @@
     - '963/udp'
     - '139/tcp'
     - '389/tcp'
-    - '389/udp'
+    - '389/tcp'
+    - '369/udp'
+    - '369/udp'
     - '2400-24100/tcp'
     - '111/tcp'
     - '464/tcp'
