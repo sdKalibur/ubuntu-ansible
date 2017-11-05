@@ -29,6 +29,8 @@
            - screen
            - pv
            - dconf-editor
+           - gparted
+           - fatresize
               
        - name: "Network utils"
          apt: name={{item}} state=latest
