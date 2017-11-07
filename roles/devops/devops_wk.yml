@@ -1,5 +1,6 @@
 ---
 - name: "DevOps toolbox"
+  hosts: kal-xt3
   apt: name={{item}} state=latest
   with_items:
     - ansible
@@ -13,3 +14,6 @@
     - cockpit-docker
     - vim-syntax-docker
     - docker.io
+    - vagrant
+    - virtualbox
+    - virt-goodies

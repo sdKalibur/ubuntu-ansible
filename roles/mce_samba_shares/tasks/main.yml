@@ -1,0 +1,5 @@
+---
+- name: setup samba and shares for MCE
+  hosts: mce
+  template: src=smb.j2 dest=/etc/samba/smb.conf
+  with_items: "{{samba_shares}}"

@@ -1,0 +1,24 @@
+---
+  workgroup: 'KALNET.COM'
+  server_string : '%h - %D samba share server '
+  usershare allow guests : yes
+samba_shares: []
+  - name: Movies
+    comment: Movies and Films
+    directory: /media/movies/Films
+    folder_perms: "0755"
+    group: nogrour
+    guest_ok: "yes"
+    owner: nobody
+    read_only: "yes"
+    writable: "no"
+  - name: Audios
+    comment: Music, Audiobooks, etc
+    directory: /media/audios
+    browsable: "yes"
+    folder_perms: "0755"
+    group: nogroup
+    guest_ok: "yes"
+    owner: nobody
+    read_only: "yes"
+ 
