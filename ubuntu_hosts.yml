@@ -78,5 +78,6 @@
        - mce_samba_shares
        - kodi
        - devops
- 
+         #   - hosts: kalibur-mce
+         #       - gluster_clients
        #     - gluster-servers.yml
