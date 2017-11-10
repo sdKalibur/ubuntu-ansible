@@ -21,6 +21,7 @@
            - at
            - vim
            - sysstat
+           - btrfs-progs
            - bash-completion
            - exfat-utils
            - exfat-fuse
@@ -74,6 +75,7 @@
    - hosts: all
      roles: 
        - gluster_clients
+       - mce_samba_shares
        - kodi
        - devops
  
