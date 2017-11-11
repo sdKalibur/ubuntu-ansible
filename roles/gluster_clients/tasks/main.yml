@@ -15,6 +15,8 @@
     - 'nfs'
     - 'samba'
     - 'ntp'
+    - 'ldap'
+    - 'ldaps'
     - 'dns'
     - 'samba-client'
     - 'https'
@@ -34,13 +36,12 @@
     - '389/tcp'
     - '369/udp'
     - '369/udp'
-    - '2400-24100/tcp'
+    - '24007-24100/tcp'
     - '111/tcp'
     - '464/tcp'
     - '965/tcp'
-    - '24007-24008/tcp'
+    - '24007-24100/udp'
     - '49000-49500/udp'
 
-    -
 - name: Reload firewalld
   shell: "firewall-cmd --reload"
