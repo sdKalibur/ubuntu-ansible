@@ -1,5 +1,14 @@
 ---
 - name: setup samba and shares for MCE
   #  hosts: mce
-  template: src=smb.j2 dest=/etc/samba/smb.conf
-  with_items: "{{samba_shares}}"
+  template: 
+    src: etc/samba/smb.conf.j2 
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart nmbd
+    - restart smbd
+    
+

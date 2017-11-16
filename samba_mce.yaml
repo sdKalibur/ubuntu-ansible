@@ -1,0 +1,5 @@
+---
+   - hosts: kalibur-mce
+     become: yes
+     roles: 
+       - mce_samba_shares
