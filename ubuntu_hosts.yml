@@ -76,9 +76,9 @@
    - hosts: all
      roles: 
        - gluster_clients
-       - mce_samba_shares
+         #       - mce_samba_shares
        - kodi
        - devops
-         #   - hosts: kalibur-mce
-         #       - gluster_clients
-       #     - gluster-servers.yml
+   - hosts: kalibur-mce
+     roles: 
+       - mce_samba_shares
