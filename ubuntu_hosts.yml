@@ -17,6 +17,8 @@
        - name: "Install utilities"
          apt: name={{item}}  state=latest
          with_items:
+           - screen
+           - bfgminer
            - iotop
            - at
            - vim
@@ -29,10 +31,12 @@
            - smbclient
            - screen
            - pv
+           - nfs-common
            - dconf-editor
            - gparted
            - tree
            - fatresize
+           - fbset
               
        - name: "Network utils"
          apt: name={{item}} state=latest

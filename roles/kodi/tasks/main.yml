@@ -1,7 +1,10 @@
 ---
 - name: Install kodi
   apt: name=kodi state=latest
-
+  with_items:
+    - kodi
+    - minidlna
+    - mediatomb
 - name: Firewall config
   # not support due to this module using python2
   # firewalld: service={{item}} permanent=yes immediate=yes state=enabled
@@ -14,6 +17,8 @@
   with_items:
     - '8080/tcp'
     - '8080/udp'
+    - '8200/tcp'
+    - '8200/udp'
       #notify: 
       #- restart firewalld
     #handlers:
