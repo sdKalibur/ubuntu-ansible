@@ -46,7 +46,7 @@
            - wireshark
            - nmap
            - network-manager
-           - samba
+           - samba-common
            - mailutils
            - mutt
          become: yes 
