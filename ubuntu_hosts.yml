@@ -23,7 +23,7 @@
            - at
            - vim
            - sysstat
-           - btrfs-progs
+             #           - btrfs-progs
            - bash-completion
            - exfat-utils
            - exfat-fuse
