@@ -25,6 +25,7 @@
            - sysstat
              #           - btrfs-progs
            - bash-completion
+           - python-optcomplete
            - exfat-utils
            - exfat-fuse
            - cifs-utils

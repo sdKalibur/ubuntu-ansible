@@ -28,3 +28,15 @@ samba_shares:
   read_only: "yes"
   writable: "no"
   allow_guests: yes
+
+- name: Incoming
+  comment: 'Fresh arrivals'
+  directory: '/media/'
+  browsable: "yes"
+  folder_perms: "0755"
+  group: kalibur
+  guest_ok: "yes"
+  owner: kalibur
+  read_only: "yes"
+  writable: "no"
+  allow_guests: yes
