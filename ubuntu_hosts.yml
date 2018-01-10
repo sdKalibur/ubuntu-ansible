@@ -85,5 +85,5 @@
        - gluster_clients
          #  - mce_samba_shares
        - kodi
-         #       - devops
+       - devops
 
