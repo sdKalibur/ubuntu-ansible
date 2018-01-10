@@ -29,7 +29,7 @@ samba_shares:
   writable: "no"
   allow_guests: yes
 
-- name: Incoming
+- name: incoming
   comment: 'Fresh arrivals'
   directory: '/media/'
   browsable: "yes"

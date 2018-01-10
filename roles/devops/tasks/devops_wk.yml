@@ -17,3 +17,5 @@
     - 'vagrant'
     - 'virtualbox'
     - 'virt-goodies'
+    - "default-jre"
+    - "default-jdk"
