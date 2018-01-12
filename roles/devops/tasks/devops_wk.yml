@@ -4,6 +4,7 @@
   apt: name={{item}} state=latest
   with_items:
     - eclipse
+    - netbeans
     - "ansible"
     - "ansible-tower-cli"
     - "packer"
