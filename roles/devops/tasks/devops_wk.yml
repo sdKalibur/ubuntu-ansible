@@ -5,6 +5,8 @@
   with_items:
     - eclipse
     - netbeans
+    - openjdk-9-jdk
+    - openjdk-9-jre
     - "ansible"
     - "ansible-tower-cli"
     - "packer"
