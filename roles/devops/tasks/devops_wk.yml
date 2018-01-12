@@ -3,6 +3,7 @@
   #  tasks:
   apt: name={{item}} state=latest
   with_items:
+    - eclipse
     - "ansible"
     - "ansible-tower-cli"
     - "packer"
