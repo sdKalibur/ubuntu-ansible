@@ -4,6 +4,7 @@
   apt: name={{item}} state=latest
   with_items:
     - ansible
+    - rhc
     - ansible-tower-cli
     - packer
     - vim-syntax-docker
