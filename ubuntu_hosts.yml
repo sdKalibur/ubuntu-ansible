@@ -6,6 +6,11 @@
        - name: Ensure Aptitude is present
          apt: name=aptitude state=present
 
+       - name: Blacklisted app
+         apt: name{{name}} state=absent
+         with_items:
+           - thunderbird
+
        - name: "apt check updates"
          apt: 
            autoclean: yes
