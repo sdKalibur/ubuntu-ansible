@@ -7,7 +7,7 @@
          apt: name=aptitude state=present
 
        - name: Blacklisted app
-         apt: name{{name}} state=absent
+         apt: name={{item}} state=absent
          with_items:
            - thunderbird
 
