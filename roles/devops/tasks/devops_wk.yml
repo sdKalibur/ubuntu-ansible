@@ -3,12 +3,12 @@
   #  tasks:
   apt: name={{item}} state=latest
   with_items:
-    - eclipse
+          #    - eclipse
     - netbeans
     - openjdk-9-jdk
     - openjdk-9-jre
     - "ansible"
-    - "ansible-tower-cli"
+      #    - "ansible-tower-cli"
     - "packer"
     - "vim-syntax-docker"
     - "systemd-docker"

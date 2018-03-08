@@ -13,9 +13,9 @@
 
        - name: "apt check updates"
          apt: 
+           update_cache: yes
            autoclean: yes
            autoremove: yes
-           update_cache: yes
            upgrade: full
            #           upgrade: safe
 

@@ -5,7 +5,7 @@
   with_items:
     - ansible
     - rhc
-    - ansible-tower-cli
+      #    - ansible-tower-cli
     - packer
     - vim-syntax-docker
     - systemd-docker
