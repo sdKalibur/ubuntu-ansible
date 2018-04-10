@@ -4,7 +4,11 @@
   with_items:
     - kodi
     - minidlna
-    - mediatomb
+    - ubuntu-restricted-addons
+    - ubuntu-restricted-extras
+    - xine-ui
+    - 
+      #    - mediatomb
 - name: Firewall config
   # not support due to this module using python2
   # firewalld: service={{item}} permanent=yes immediate=yes state=enabled

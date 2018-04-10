@@ -18,6 +18,7 @@
     - 'ldap'
     - 'ldaps'
     - 'dns'
+    - 'mdns'
     - 'samba-client'
     - 'https'
     - 'mountd'

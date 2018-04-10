@@ -13,11 +13,13 @@
 
        - name: "apt check updates"
          apt: 
+         #      force_apt_get : yes
            update_cache: yes
            autoclean: yes
            autoremove: yes
            upgrade: full
-           #           upgrade: safe
+           # upgrade: dist
+
 
        - name: "Install utilities"
          apt: name={{item}}  state=latest
@@ -59,8 +61,8 @@
        - name: "Network resourses utils"
          apt: name={{item}} state=latest
          with_items:
-           - freeipa-client
-           - sl
+                 #  - freeipa-client
+                 #  - sl
            - xterm
        - name: "Security protection utils"
          apt: name={{item}} state=latest
@@ -90,7 +92,7 @@
        - gluster_clients
          #  - mce_samba_shares
        - kodi
-   - hosts: kal-xt3, kalibur-mce
+   - hosts: kal-xt3
      roles:
        - devops
 
