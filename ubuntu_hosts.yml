@@ -94,5 +94,5 @@
        - kodi
    - hosts: kal-xt3
      roles:
-       - devops
+             #       - devops
 

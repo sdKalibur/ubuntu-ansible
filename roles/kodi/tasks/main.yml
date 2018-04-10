@@ -7,7 +7,7 @@
     - ubuntu-restricted-addons
     - ubuntu-restricted-extras
     - xine-ui
-    - 
+    - totem 
       #    - mediatomb
 - name: Firewall config
   # not support due to this module using python2
