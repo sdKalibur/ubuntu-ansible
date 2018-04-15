@@ -35,6 +35,9 @@
            - python-optcomplete
            - exfat-utils
            - exfat-fuse
+           - samba
+           - libpam-mount
+           - gnome-system-tools
            - cifs-utils
            - smbclient
            - screen
