@@ -60,6 +60,7 @@
            - samba-common
            - mailutils
            - mutt
+           - nfs-kernel-server
          become: yes 
        - name: "Network resourses utils"
          apt: name={{item}} state=latest
