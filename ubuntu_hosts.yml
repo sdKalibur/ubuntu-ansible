@@ -25,6 +25,7 @@
          apt: name={{item}}  state=latest
          with_items:
            - screen
+           - terminator
            - bfgminer
            - iotop
            - at
