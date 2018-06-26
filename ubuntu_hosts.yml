@@ -97,7 +97,7 @@
        - gluster_clients
          #  - mce_samba_shares
        - kodi
-   - hosts: kal-xt3
+   - hosts: kal-xt3, kalibur-mce
      roles:
-             #       - devops
+       - devops
 

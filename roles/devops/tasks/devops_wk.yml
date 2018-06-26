@@ -4,22 +4,29 @@
   apt: name={{item}} state=latest
   with_items:
           #    - eclipse
-    - netbeans
-    - openjdk-9-jdk
-    - openjdk-9-jre
-    - "ansible"
+          #    - netbeans
+      #    - openjdk-9-jdk
+      #    - openjdk-9-jre
+    - ansible
       #    - "ansible-tower-cli"
-    - "packer"
-    - "vim-syntax-docker"
-    - "systemd-docker"
-    - "whalebuilder"
-    - "docker-compose"
-    - 'ctop'
-    - 'cockpit-docker'
-    - 'vim-syntax-docker'
-    - 'docker.io'
-    - 'vagrant'
-    - 'virtualbox'
-    - 'virt-goodies'
-    - "default-jre"
-    - "default-jdk"
+      #    - packer
+    - vim-syntax-docker
+    - systemd-docker
+      #    - whalebuilder
+    - docker-compose
+    - ctop
+      #    - cockpit-docker
+      #    - 'docker.io'
+      #    - 'vagrant'
+      #    - 'virtualbox'
+    - virt-goodies
+      #    - "default-jre"
+      #    - "default-jdk"
+    - virt-manager
+    - virt-top
+    - virtinst
+    - libvirt-bin
+    - docker.io
+    - docker
+  ignore_errors: True
+  register: result
