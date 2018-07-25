@@ -49,7 +49,12 @@
            - tree
            - fatresize
            - fbset
-              
+       - name: Enable sysstat
+         replace:
+           path: /etc/default/sysstat
+           regexp: 'ENABLED="false"'       
+           replace: 'ENABLED="true"'
+           backup: yes
        - name: "Network utils"
          apt: name={{item}} state=latest
          with_items:
