@@ -4,6 +4,9 @@
   apt: name={{item}} state=latest
   with_items:
           #    - eclipse
+    - idle3
+    - python3
+    - python3-pip
           #    - netbeans
       #    - openjdk-9-jdk
       #    - openjdk-9-jre

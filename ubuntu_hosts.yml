@@ -51,10 +51,14 @@
            - fbset
        - name: Enable sysstat
          replace:
-           path: /etc/default/sysstat
+           path: '/etc/default/sysstat'
            regexp: 'ENABLED="false"'       
            replace: 'ENABLED="true"'
            backup: yes
+       - name: Make enable sysstat
+         service: 
+           name: 'sysstat.service' 
+           state: 'restarted'
        - name: "Network utils"
          apt: name={{item}} state=latest
          with_items:
