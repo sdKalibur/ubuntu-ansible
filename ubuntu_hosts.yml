@@ -85,6 +85,7 @@
            - firewalld
            - rsnapshot
            - xymon-client
+           - aide
            - cryptsetup
        - name: "LAMP utils"
          apt: name={{item}} state=latest
