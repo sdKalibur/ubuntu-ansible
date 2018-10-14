@@ -3,6 +3,12 @@
   apt: name=kodi state=latest
   with_items:
     - kodi
+    - mplayer
+    - vlc
+    - libva2
+    - libva-x11-2
+    - vdpauinfo
+    - vdpau-va-driver
     - minidlna
     - ubuntu-restricted-addons
     - ubuntu-restricted-extras
