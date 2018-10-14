@@ -1,6 +1,12 @@
 ---
+- name: Add Kodi ppa repo
+  apt_repository: 
+     repo: 'ppa:team-xbmc/ppa'  
+     state: present
+     validate_certs: yes 
+     update_cache: yes
 - name: Install kodi
-  apt: name=kodi state=latest
+  apt: name={{item}} state=latest
   with_items:
     - kodi
     - mplayer
