@@ -4,7 +4,7 @@ server_string : '%h samba share server  (Samba, Ubuntu)'
 usershare_allow_guests : yes
 security: user
 samba_shares:
-- name: Films
+- name: films
   comment: 'Movies and Films'
   directory: '/media/movies/'
   folder_perms: "0755"
@@ -17,7 +17,7 @@ samba_shares:
   allow_guests: yes
 
 
-- name: Audios
+- name: audios
   comment: 'Music, Audiobooks, etc'
   directory: '/media/'
   browsable: "yes"

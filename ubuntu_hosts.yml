@@ -87,10 +87,16 @@
            - xymon-client
            - aide
            - cryptsetup
+           - apparmor-utils
+             #       - name:  Apparmor complain only
+             #         shell: 'aa-complain /usr/sbin/{{item}}'
+             #         with_items:
+             #           - mysqld
        - name: "LAMP utils"
          apt: name={{item}} state=latest
          with_items:
-           - mariadb-client
+                 #           - mariadb-client
+           - mariadb-server
            - rhc
        - name: update alternatives
          #         alternatives: name={{item}} path={{item}}
@@ -110,4 +116,6 @@
    - hosts: kal-xt3, kalibur-mce
      roles:
        - devops
-
+   - hosts: kalibur-mce
+     roles:
+       - mythtv

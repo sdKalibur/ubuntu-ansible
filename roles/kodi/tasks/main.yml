@@ -5,10 +5,18 @@
      state: present
      validate_certs: yes 
      update_cache: yes
+     #- name: Remove ubuntu repo Kodi
+     #  apt: name={{items}} state=absent
+     #  with_items:
+# this one is probably harmless    - kodi
+#    - kodi-bin
+      #    - kodi-data
 - name: Install kodi
   apt: name={{item}} state=latest
   with_items:
     - kodi
+      #    - kodi-repository-kodi
+    - kodi-visualization-projectm
     - mplayer
     - vlc
     - libva2
