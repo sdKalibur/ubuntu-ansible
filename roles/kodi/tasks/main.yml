@@ -27,7 +27,13 @@
     - ubuntu-restricted-addons
     - ubuntu-restricted-extras
     - xine-ui
+    - gstreamer1.0-pulseaudio
+    - gstreamer1.0-plugins-ugly
+    - gstreamer1.0-vaapi
+    - gstreamer1.0-alsa
     - totem 
+    - mediainfo-gui
+    - qmmp
       #    - mediatomb
 - name: Firewall config
   # not support due to this module using python2
