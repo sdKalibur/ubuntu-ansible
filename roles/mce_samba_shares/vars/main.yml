@@ -4,7 +4,7 @@ server_string : '%h samba share server  (Samba, Ubuntu)'
 usershare_allow_guests : yes
 security: user
 samba_shares:
-- name: films
+- name: Films
   comment: 'Movies and Films'
   directory: '/media/movies/'
   folder_perms: "0755"
@@ -12,9 +12,9 @@ samba_shares:
   guest_ok: "yes"
   browsable: "yes"
   owner: kalibur
-  read_only: "yes"
-  writable: "no"
-  allow_guests: yes
+  #  read_only: "yes"
+  writable: "yes"
+  allow_guests: "yes"
 
 
 - name: audios
@@ -27,7 +27,7 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  allow_guests: yes
+  allow_guests: "yes"
 
 - name: incoming
   comment: 'Fresh arrivals'
@@ -39,4 +39,4 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  allow_guests: yes
+  allow_guests: "yes"
