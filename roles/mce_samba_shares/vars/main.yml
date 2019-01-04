@@ -6,14 +6,14 @@ security: user
 samba_shares:
 - name: Films
   comment: 'Movies and Films'
-  directory: '/media/movies/'
+  directory: '/media/'
   folder_perms: "0755"
   group: kalibur
   guest_ok: "yes"
   browsable: "yes"
   owner: kalibur
-  #  read_only: "yes"
-  writable: "yes"
+  read_only: "yes"
+  writable: "no"
   allow_guests: "yes"
 
 
