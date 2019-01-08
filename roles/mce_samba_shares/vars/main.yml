@@ -1,8 +1,9 @@
 ---
-work_group: 'KALNET'
+work_group: 'KAL-NET'
 server_string : '%h samba share server  (Samba, Ubuntu)'
 usershare_allow_guests : yes
-security: user
+security: share
+
 samba_shares:
 - name: Films
   comment: 'Movies and Films'
@@ -14,9 +15,10 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
+  force_user: "kalibur"
 
 - name: movies
-  comment: 'Movies and Films'
+  comment: "Movies and Films"
   directory: '/media/'
   browsable: "yes"
   folder_perms: "0755"
