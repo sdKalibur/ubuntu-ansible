@@ -14,7 +14,6 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  allow_guests: "yes"
 
 - name: movies
   comment: 'Movies and Films'
@@ -26,8 +25,6 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  allow_guests: "yes"
-
 
 - name: audios
   comment: 'Music, Audiobooks, etc'
@@ -39,7 +36,6 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  allow_guests: "yes"
 
 - name: incoming
   comment: 'Fresh arrivals'
@@ -51,4 +47,3 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  allow_guests: "yes"

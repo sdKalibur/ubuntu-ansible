@@ -41,7 +41,6 @@
     comment = {{ item.comment|lower }}
     path = {{item.directory}}{{ item.name}}
     directory mask = {{item.folder_perms}}
-    allow guests =  {{ item.allow_guests|lower }}
     browsable = {{ item.browsable|lower }}
     guest ok = {{ item.guest_ok|lower }}
     {%     if item.read_only is defined %}
