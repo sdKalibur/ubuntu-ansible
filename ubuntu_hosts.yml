@@ -105,7 +105,7 @@
            - { 'editor', '/usr/bin/vim' }
              #           - { name: 'editor',path: '/usr/bin/vim' }
          when: ansible_os_family == 'Debian'
-   - hosts: kalibur-mce, kal-xt3
+   - hosts: kalibur-mce 
      roles: 
        - mce_samba_shares
    - hosts: all

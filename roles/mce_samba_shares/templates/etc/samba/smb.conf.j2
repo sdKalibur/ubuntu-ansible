@@ -17,7 +17,7 @@
 	server role = standalone server
 	unix password sync = Yes
 	dns proxy = No
-;	idmap config * : backend = tdb
+	idmap config * : backend = tdb
 	browse list = Yes
 
 [printers]
@@ -41,14 +41,14 @@
     comment = {{ item.comment|lower }}
     path = {{item.directory}}{{ item.name}}
     directory mask = {{item.folder_perms}}
-    browseable = {{ item.browsable|lower }}
+    browseable = {{ item.browseable|lower }}
     guest ok = {{ item.guest_ok|lower }}
     {%     if item.read_only is defined %}
     read only = {{item.read_only|lower}}
     {%     endif %}
     {%     if item.valid_users is defined %}
 ;   valid users = {{item.valid_users}}
-    force user  = {{item.force_user}}
+;    force user  = {{item.force_user}}
 valid users = %S
 {%     endif %}
 ;writable = {{item.writable|lower}}

@@ -1,8 +1,8 @@
 ---
 work_group: 'KAL-NET'
 server_string : '%h samba share server  (Samba, Ubuntu)'
-usershare_allow_guests : yes
-security: user
+usershare_allow_guests : "yes"
+security: "user"
 
 samba_shares:
 - name: Films
