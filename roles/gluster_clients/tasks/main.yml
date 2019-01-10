@@ -4,6 +4,7 @@
   with_items:
     - glusterfs-client
     - glusterfs-common
+    - uwsgi-plugin-glusterfs
 
       #- name: Volume mounts
 
@@ -23,6 +24,7 @@
     - 'https'
     - 'mountd'
     - 'rpc-bind'
+    - 'rpc2portmap'
 - name: Firewall ports allow
   shell: "firewall-cmd --add-port={{item}} --permanent"
   with_items:
@@ -30,21 +32,21 @@
     - '8080/udp'
     - '445/tcp'
     - '88/tcp'
-    - '49000-49251/tcp'
+    - '45000-50000/tcp'
     - '2049/tcp'
     - '111/udp'
     - '963/udp'
     - '139/tcp'
-    - '389/tcp'
+    - '389/udp'
     - '389/tcp'
     - '369/udp'
-    - '369/udp'
+    - '369/tcp'
     - '24007-24100/tcp'
     - '111/tcp'
     - '464/tcp'
     - '965/tcp'
     - '24007-24100/udp'
-    - '49000-49500/udp'
+    - '45000-50000/udp'
 
 - name: Reload firewalld
   shell: "firewall-cmd --reload"

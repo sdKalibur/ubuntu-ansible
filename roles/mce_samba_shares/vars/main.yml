@@ -15,7 +15,7 @@ samba_shares:
   owner: kalibur
   read_only: "yes"
   writable: "no"
-  force_user: "kalibur"
+#  force_user: "kalibur"
 
 - name: movies
   comment: "Movies and Films"
