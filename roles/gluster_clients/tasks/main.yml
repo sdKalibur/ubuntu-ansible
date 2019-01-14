@@ -23,8 +23,8 @@
     - 'samba-client'
     - 'https'
     - 'mountd'
-    - 'rpc-bind'
-    - 'rpc2portmap'
+      #    - 'rpc-bind'
+      #    - 'rpc2portmap'
 - name: Firewall ports allow
   shell: "firewall-cmd --add-port={{item}} --permanent"
   with_items:

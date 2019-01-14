@@ -1,0 +1,58 @@
+# Global parameters
+[global]
+	;;This file is ansible managed any manual changes will be over-written
+	server string = {{ server_string }}
+	workgroup = {{ work_group }}
+        security = {{security}}
+	log file = /var/log/samba/log.%m
+	max log size = 1000
+	syslog = 1
+	panic action = /usr/share/samba/panic-action %d
+	usershare allow guests = {{ usershare_allow_guests }}
+	map to guest = Bad User
+	obey pam restrictions = Yes
+	pam password change = Yes
+	passwd chat = *Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* .
+	passwd program = /usr/bin/passwd %u
+	server role = standalone server
+	unix password sync = Yes
+	dns proxy = No
+	idmap config * : backend = tdb
+	browse list = Yes
+
+[printers]
+	comment = All Printers
+	path = /var/spool/samba
+	browseable = No
+	printable = Yes
+	create mask = 0700
+
+
+[print$]
+	comment = Printer Drivers
+	path = /var/lib/samba/printers
+
+{% if samba_shares is defined %}
+
+#======================= Share Definitions =======================
+
+{%   for item in samba_shares %}
+  [{{ item.name }}]
+    comment = {{ item.comment|lower }}
+    path = {{item.directory}}{{ item.name}}
+    directory mask = {{item.folder_perms}}
+    browseable = {{ item.browseable|lower }}
+    guest ok = {{ item.guest_ok|lower }}
+    {%     if item.read_only is defined %}
+    read only = {{item.read_only|lower}}
+    {%     endif %}
+    {%     if item.valid_users is defined %}
+;   valid users = {{item.valid_users}}
+;    force user  = {{item.force_user}}
+valid users = %S
+{%     endif %}
+;writable = {{item.writable|lower}}
+  {%   endfor %}
+{% endif %}
+
+
