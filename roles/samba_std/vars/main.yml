@@ -12,3 +12,11 @@ samba_shares:
   folder_perms: "0755"
   guest_ok: "yes"
   read_only: "yes"
+
+- name: mce-backups
+  directory: '/kal-net/backups/mce-vol-01/Films'
+  comment: MCE-VOL Backups
+  browseable: "yes"
+  folder_perms: 744
+  guest_ok: "yes"
+  read_only: "yes"

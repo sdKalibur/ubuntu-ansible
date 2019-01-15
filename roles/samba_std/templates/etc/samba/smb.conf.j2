@@ -51,7 +51,9 @@
 ;    force user  = {{item.force_user}}
 valid users = %S
 {%     endif %}
-;writable = {{item.writable|lower}}
+{%	if item.writable is defined %}
+writable = {{item.writable|lower}}
+{% endif %}
   {%   endfor %}
 {% endif %}
 
