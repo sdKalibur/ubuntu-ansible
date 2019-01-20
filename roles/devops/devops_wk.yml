@@ -18,3 +18,5 @@
     - vagrant
     - virtualbox
     - virt-goodies
+    - xclip
+    - python3-pip

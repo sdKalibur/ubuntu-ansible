@@ -27,7 +27,6 @@
 	printable = Yes
 	create mask = 0700
 
-
 [print$]
 	comment = Printer Drivers
 	path = /var/lib/samba/printers
@@ -43,15 +42,15 @@
     	directory mask = {{item.folder_perms}}
     	browseable = {{ item.browseable|lower }}
     	guest ok = {{ item.guest_ok|lower }}
-    {%     if item.read_only is defined %}
+	{%     if item.read_only is defined %}
     	read only = {{item.read_only|lower}}
-    {%     endif %}
-    {%     if item.valid_users is defined %}
+	{%     endif %}
+	{%     if item.valid_users is defined %}
 	;   valid users = {{item.valid_users}}
 	;    force user  = {{item.force_user}}
 	valid users = %S
-{%     endif %}
-{%	if item.writable is defined %}
+	{%     endif %}
+	{%	if item.writable is defined %}
 	writable = {{item.writable|lower}}
 {% endif %}
   {%   endfor %}
