@@ -108,18 +108,21 @@
    - hosts: kalibur-mce 
      roles: 
        - mce_samba_shares
+   - hosts: kal-inspiron
+     roles:
+       - workstation
    - hosts: all
      roles: 
        - gluster_clients
          #  - mce_samba_shares
        - kodi
-   - hosts: kal-xt3, kalibur-mce
+   - hosts: kal-xt3, kalibur-mce, kal-inspiron
      roles:
        - devops
    - hosts: kalibur-mce
      roles:
        - mythtv
-   - hosts: kal-bunker, kal-xt3
+   - hosts: kal-bunker, kal-xt3, kal-inspiron
      roles:
        - samba_std
          #   - include: kal-labs/ubuntu-ansible/roles/samba_std/vars/"{{ hostvars[inventory_hostname].ansible_hostname }}".yml

@@ -1,0 +1,20 @@
+---
+- name: Desktop apps
+  apt: name={{item}} state=latest
+  with_items:
+          #    - eclipse
+    - idle3
+    - python3
+    - python3-pip
+    - ansible
+    - vim-syntax-docker
+    - ctop
+    - virt-goodies
+    - virt-manager
+    - virt-top
+    - virtinst
+    - libvirt-bin
+    - docker.io
+    - docker
+  ignore_errors: True
+  register: result

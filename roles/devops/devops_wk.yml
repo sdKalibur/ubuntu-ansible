@@ -4,6 +4,7 @@
   apt: name={{item}} state=latest
   with_items:
     - ansible
+    - mysql-workbench
     - rhc
       #    - ansible-tower-cli
     - packer
@@ -20,3 +21,4 @@
     - virt-goodies
     - xclip
     - python3-pip
+    - xsel
