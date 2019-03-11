@@ -4,17 +4,39 @@
   with_items:
           #    - eclipse
     - idle3
+    - libreoffice
     - python3
-    - python3-pip
+    - konversation
+- name: System utils
+  apt: name={{item}} state=latest
+  with_items:
+    - lvm2
+    - rsync
+    - htop
     - ansible
-    - vim-syntax-docker
     - ctop
     - virt-goodies
     - virt-manager
     - virt-top
     - virtinst
-    - libvirt-bin
     - docker.io
     - docker
+    - mysql-utilities
+  ignore_erros: True
+  register: result
+- name: Dev utils
+  apt: name={{item}} state=latest
+  with_items:
+    - python3-pip
+    - idle3
+    - mysql-workbench 
+    - vim-syntax-docker
+    - python3-pip
+- name: DevOps Utils
+  apt: name={{item}} state=latest
+  with_items:
+    - ansible-lint
+    - multipath-tools
+    - ansible-tower-cli
   ignore_errors: True
   register: result
