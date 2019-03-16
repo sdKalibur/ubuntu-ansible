@@ -71,6 +71,8 @@
            - mailutils
            - mutt
            - nfs-kernel-server
+           - curl
+           - wget
          become: yes 
        - name: "Network resourses utils"
          apt: name={{item}} state=latest

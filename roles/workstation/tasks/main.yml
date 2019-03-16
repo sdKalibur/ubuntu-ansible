@@ -4,6 +4,7 @@
   with_items:
           #    - eclipse
     - idle3
+    - transmission
     - libreoffice
     - python3
     - konversation
