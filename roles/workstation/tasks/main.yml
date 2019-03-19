@@ -8,6 +8,8 @@
     - libreoffice
     - python3
     - konversation
+      #    - mailspring
+    - geary
 - name: System utils
   apt: name={{item}} state=latest
   with_items:
