@@ -15,7 +15,6 @@
       #    - "ansible-tower-cli"
       #    - packer
     - vim-syntax-docker
-    - systemd-docker
       #    - whalebuilder
     - docker-compose
     - ctop
@@ -31,6 +30,7 @@
     - virtinst
     - libvirt-bin
     - docker.io
+    - python3-docker
     - docker
   ignore_errors: True
   register: result

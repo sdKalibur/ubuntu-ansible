@@ -3,12 +3,11 @@
   apt: name={{item}} state=latest
   with_items:
           #    - eclipse
-    - idle3
+    - skype
     - transmission
     - libreoffice
-    - python3
     - konversation
-      #    - mailspring
+    - evolution
     - geary
 - name: System utils
   apt: name={{item}} state=latest
@@ -32,6 +31,8 @@
   with_items:
     - python3-pip
     - idle3
+    - retext
+      python3
     - mysql-workbench 
     - vim-syntax-docker
     - python3-pip
