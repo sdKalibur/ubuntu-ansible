@@ -26,12 +26,10 @@
          with_items:
            - screen
            - terminator
-           - bfgminer
            - iotop
            - at
            - vim
            - sysstat
-             #           - btrfs-progs
            - bash-completion
            - python-optcomplete
            - exfat-utils

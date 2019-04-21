@@ -2,19 +2,18 @@
 - name: Desktop apps
   apt: name={{item}} state=latest
   with_items:
-          #    - eclipse
-          #    - skype
     - transmission
     - libreoffice
     - konversation
     - evolution
-<<<<<<< HEAD
-- name: Snap install
-  snap: name={{item}} state=present
-    - pycharm
-=======
-    - geary
->>>>>>> 9d797fdae375487c4853aa35395bb5076471879b
+
+- name: Install Snap apps
+  command: "snap install pycharm-community" 
+  #with_items:
+            #      - {{item}} #state=present
+        #    with_items:
+        #      - 'pycharm-community'
+  register: my_snap
 - name: System utils
   apt: name={{item}} state=latest
   with_items:
@@ -39,9 +38,10 @@
     - idle3
     - retext
     - python3
-    - mysql-workbench 
+    - mysql-workbench
     - vim-syntax-docker
     - python3-pip
+  ignore_errors: True
 - name: DevOps Utils
   apt: name={{item}} state=latest
   with_items:
@@ -52,9 +52,7 @@
   register: result
 - name: "hosts file"
   blockinfile: 
-  #path: /etc/hosts 
     dest: /etc/hosts 
-    #    regex: 
     block: |
      # Ansible populated
       10.42.0.203        kal-xt3    kal-xt3.kal-net.com
