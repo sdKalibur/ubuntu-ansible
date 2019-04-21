@@ -7,6 +7,10 @@
     - libreoffice
     - python3
     - konversation
+    - evolution
+- name: Snap install
+  snap: name={{item}} state=present
+    - pycharm
 - name: System utils
   apt: name={{item}} state=latest
   with_items:
