@@ -3,14 +3,18 @@
   apt: name={{item}} state=latest
   with_items:
           #    - eclipse
-    - idle3
+          #    - skype
+    - transmission
     - libreoffice
-    - python3
     - konversation
     - evolution
+<<<<<<< HEAD
 - name: Snap install
   snap: name={{item}} state=present
     - pycharm
+=======
+    - geary
+>>>>>>> 9d797fdae375487c4853aa35395bb5076471879b
 - name: System utils
   apt: name={{item}} state=latest
   with_items:
@@ -33,6 +37,8 @@
   with_items:
     - python3-pip
     - idle3
+    - retext
+    - python3
     - mysql-workbench 
     - vim-syntax-docker
     - python3-pip
@@ -44,3 +50,18 @@
     - ansible-tower-cli
   ignore_errors: True
   register: result
+- name: "hosts file"
+  blockinfile: 
+  #path: /etc/hosts 
+    dest: /etc/hosts 
+    #    regex: 
+    block: |
+     # Ansible populated
+      10.42.0.203        kal-xt3    kal-xt3.kal-net.com
+      10.42.0.2          kalibur-mce    kalibur-mce.kal-net.com
+      10.42.0.30         kal-bunker    kal-bunker.kal-net.com
+      10.42.0.80         kal-ninja   kal-ninja.kal-net.com
+      10.42.0.53         ipa01    ipa01.kal-net.com
+      #    state: present 
+    backup: yes 
+    #    create: yes
