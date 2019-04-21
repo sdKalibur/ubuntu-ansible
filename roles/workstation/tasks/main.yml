@@ -8,12 +8,13 @@
     - evolution
 
 - name: Install Snap apps
-  command: "snap install pycharm-community" 
+  command: "snap install pycharm-community --classic" 
   #with_items:
             #      - {{item}} #state=present
         #    with_items:
         #      - 'pycharm-community'
   register: my_snap
+  ignore_errors: True
 - name: System utils
   apt: name={{item}} state=latest
   with_items:
