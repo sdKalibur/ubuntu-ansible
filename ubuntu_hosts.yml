@@ -47,6 +47,7 @@
            - tree
            - fatresize
            - fbset
+         ignore_errors: True
        - name: Enable sysstat
          replace:
            path: '/etc/default/sysstat'
