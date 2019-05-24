@@ -30,12 +30,13 @@
     - docker.io
     - docker
     - mysql-utilities
-  ignore_erros: True
+  ignore_errors: True
   register: result
 - name: Dev utils
   apt: name={{item}} state=latest
   with_items:
     - python3-pip
+    - python-pip
     - idle3
     - retext
     - python3
@@ -43,6 +44,17 @@
     - vim-syntax-docker
     - python3-pip
   ignore_errors: True
+- name: Pip installs
+  pip: name={{item}} state=latest
+  with_items:
+    - Mediainfo
+    - pymediainfo
+    - pymiparse
+    - ansible-playbook-grapher
+    - ansible-inventory-grapher
+    - gperf
+    - sadf
+    - gperf
 - name: DevOps Utils
   apt: name={{item}} state=latest
   with_items:
