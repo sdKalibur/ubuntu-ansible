@@ -9,6 +9,7 @@
 
 - name: Install Snap apps
   command: "snap install pycharm-community --classic" 
+  command: "snap install mysql-workbench --classic" 
   #with_items:
             #      - {{item}} #state=present
         #    with_items:
@@ -39,7 +40,7 @@
     - idle3
     - retext
     - python3
-    - mysql-workbench
+      #    - mysql-workbench
     - vim-syntax-docker
     - python3-pip
   ignore_errors: True
@@ -64,3 +65,14 @@
       #    state: present 
     backup: yes 
     #    create: yes
+- name: Security
+  apt: name={{item}} state=latest
+  with_itmes:
+    - firewalld
+  ignore_errors: True
+
+- name: Handlers
+  systemd: 
+    name: firewalld    
+    state: started 
+    enabled: yes

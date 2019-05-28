@@ -109,7 +109,7 @@
    - hosts: kalibur-mce 
      roles: 
        - mce_samba_shares
-   - hosts: kal-inspiron
+   - hosts: kal-inspiron, kal-xt3, kalibur-mce
      roles:
        - workstation
    - hosts: all
