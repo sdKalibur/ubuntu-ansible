@@ -1,16 +1,13 @@
 ---
-- hosts: all
-  #  import: "vars/{{ansible_hostname}}.yml"
-  tasks:
-    - name: "setup samba and shares for MCE"
-      template: 
-        src: etc/samba/smb.conf.j2 
-        dest: /etc/samba/smb.conf
-        validate: '/usr/bin/testparm -s -p %s'
-        backup: yes
-        owner: root
-        group: root
-        mode: '0644'
-    - notify:
-        - restart nmbd
-        - restart smbd
+- name: "setup samba and shares for MCE"
+  template: 
+    src: etc/samba/smb.conf.j2 
+    dest: /etc/samba/smb.conf
+    validate: '/usr/bin/testparm -s -p %s'
+    backup: yes
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - restart nmbd
+    - restart smbd
