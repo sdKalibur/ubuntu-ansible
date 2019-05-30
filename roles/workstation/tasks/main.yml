@@ -67,7 +67,7 @@
     #    create: yes
 - name: Security
   apt: name={{item}} state=latest
-  with_itmes:
+  with_items:
     - firewalld
   ignore_errors: True
 

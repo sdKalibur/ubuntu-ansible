@@ -50,3 +50,4 @@
 
 - name: Reload firewalld
   shell: "firewall-cmd --reload"
+  ignore_errors: True
