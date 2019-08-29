@@ -1,21 +1,26 @@
 ---
 - name: Desktop apps
-  apt: name={{item}} state=latest
-  with_items:
+  apt: 
+   name: "{{items}}" 
+   state: latest
+  vars:
+    items:
     - transmission
     - libreoffice
     - konversation
     - evolution
 
 - name: Install Snap apps
-  command: "snap install pycharm-community --classic" 
-  command: "snap install mysql-workbench --classic" 
-  #with_items:
-            #      - {{item}} #state=present
-        #    with_items:
-        #      - 'pycharm-community'
+  snap:
+    name:
+      - mysql-workbench
+      - pycharm-community
+    classic: yes
+    
   register: my_snap
   ignore_errors: True
+- debug:
+    msg: my_snap  
 - name: System utils
   apt: name={{item}} state=latest
   with_items:
@@ -70,6 +75,7 @@
     dest: /etc/hosts 
     block: |
      # Ansible populated
+      10.42.0.206        kal-inspiron    kal-inspiron.kal-net.com
       10.42.0.203        kal-xt3    kal-xt3.kal-net.com
       10.42.0.2          kalibur-mce    kalibur-mce.kal-net.com
       10.42.0.30         kal-bunker    kal-bunker.kal-net.com

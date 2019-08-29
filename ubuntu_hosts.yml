@@ -59,37 +59,36 @@
            name: 'sysstat.service' 
            state: 'restarted'
        - name: "Network utils"
-         apt: name={{item}} state=latest
-         with_items:
-                 #    - net-tools
-           - iftop
-           - wireshark
-           - nmap
-           - network-manager
-           - samba-common
-           - mailutils
-           - mutt
-           - nfs-kernel-server
-           - curl
-           - wget
+         apt: name="{{items}}" state=latest
+         vars:
+           items:
+             - iftop
+             - wireshark
+             - nmap
+             - network-manager
+             - samba-common
+             - mailutils
+             - mutt
+             - nfs-kernel-server
+             - curl
+             - wget
          become: yes 
-       - name: "Network resourses utils"
-         apt: name={{item}} state=latest
-         with_items:
-                 #  - freeipa-client
-                 #  - sl
-           - xterm
+
        - name: "Security protection utils"
-         apt: name={{item}} state=latest
-         with_items:
-           - clamav
-           - firewalld
-           - rsnapshot
-           - iptables
-           - xymon-client
-           - aide
-           - cryptsetup
-           - apparmor-utils
+         apt: 
+         #        state: latest
+           update_cache: yes
+           name: "{{items}}"
+         vars:
+           items:
+             - clamav
+             - firewalld
+             - rsnapshot
+             - iptables
+             - xymon-client
+             - aide
+             - cryptsetup
+             - apparmor-utils
              #       - name:  Apparmor complain only
              #         shell: 'aa-complain /usr/sbin/{{item}}'
              #         with_items:
