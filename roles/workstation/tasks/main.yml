@@ -62,6 +62,9 @@
     - sadf
     - gperf
     - paramiko
+    - matplotlib
+    - numpy
+
 - name: DevOps Utils
   apt: name={{item}} state=latest
   with_items:
@@ -81,6 +84,7 @@
       10.42.0.30         kal-bunker    kal-bunker.kal-net.com
       10.42.0.80         kal-ninja   kal-ninja.kal-net.com
       10.42.0.53         ipa01    ipa01.kal-net.com
+      10.42.0.201        mac-rhel  mac-rhel.kal-net.com
       #    state: present 
     backup: yes 
     #    create: yes
