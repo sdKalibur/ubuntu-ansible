@@ -15,6 +15,7 @@
     name:
       - mysql-workbench
       - pycharm-community
+      - jupyter
     classic: yes
     
   register: my_snap
@@ -23,7 +24,8 @@
     msg: my_snap  
 - name: System utils
   apt: name={{item}} state=latest
-  with_items:
+  vars:
+    items:
     - lvm2
     - rsync
     - htop
@@ -36,22 +38,25 @@
     - docker.io
     - docker
     - mysql-utilities
+    - fakeroot
   ignore_errors: True
   register: result
 - name: Dev utils
   apt: name={{item}} state=latest
-  with_items:
+  vars:
+    items:
     - python3-pip
     - python-pip
     - idle3
     - retext
     - python3
       #    - mysql-workbench
-    - vim-syntax-docker
+      # - vim-syntax-docker
     - python3-pip
   ignore_errors: True
 - name: Pip installs
-  pip: name={{item}} state=latest
+  pip:  name={{item}} state=latest executable=pip3
+  #  vars:
   with_items:
     - Mediainfo
     - pymediainfo
@@ -63,11 +68,13 @@
     - gperf
     - paramiko
     - matplotlib
-    - numpy
+    - pandas
+    - jupyter
 
 - name: DevOps Utils
   apt: name={{item}} state=latest
-  with_items:
+  vars:
+    items:
     - ansible-lint
     - multipath-tools
     - ansible-tower-cli
@@ -90,9 +97,12 @@
     #    create: yes
 - name: Security
   apt: name={{item}} state=latest
-  with_items:
-    - firewalld
+  vars:
+    items:
+      - firewalld
   ignore_errors: True
+  notify: 
+    - firewalld reload 
 
 - name: Handlers
   systemd: 
