@@ -23,7 +23,7 @@
 - debug:
     msg: my_snap  
 - name: System utils
-  apt: name={{item}} state=latest
+  apt: name={{items}} state=latest
   vars:
     items:
     - lvm2
@@ -42,7 +42,7 @@
   ignore_errors: True
   register: result
 - name: Dev utils
-  apt: name={{item}} state=latest
+  apt: name={{items}} state=latest
   vars:
     items:
     - python3-pip
@@ -55,9 +55,9 @@
     - python3-pip
   ignore_errors: True
 - name: Pip installs
-  pip:  name={{item}} state=latest executable=pip3
-  #  vars:
-  with_items:
+  pip:  name={{items}} state=latest executable=pip3
+  vars:
+    items:
     - Mediainfo
     - pymediainfo
     - pymiparse
@@ -72,7 +72,7 @@
     - jupyter
 
 - name: DevOps Utils
-  apt: name={{item}} state=latest
+  apt: name={{items}} state=latest
   vars:
     items:
     - ansible-lint
@@ -96,7 +96,7 @@
     backup: yes 
     #    create: yes
 - name: Security
-  apt: name={{item}} state=latest
+  apt: name={{items}} state=latest
   vars:
     items:
       - firewalld
