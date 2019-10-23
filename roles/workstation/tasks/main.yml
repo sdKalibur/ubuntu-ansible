@@ -66,6 +66,7 @@
     - gperf
     - sadf
     - gperf
+    - django
     - paramiko
     - matplotlib
     - pandas
