@@ -1,9 +1,13 @@
 ---
 - name: Install glusterfs client utils
   apt: name={{item}} state=latest
-  with_items:
+  vars:
+    item:
     - glusterfs-client
     - glusterfs-common
+    - nfs-ganesha
+    - nfs-ganesha-gluster
+    - python-nfs-ganesha
     - uwsgi-plugin-glusterfs
 
       #- name: Volume mounts
@@ -23,6 +27,7 @@
     - 'samba-client'
     - 'https'
     - 'mountd'
+    - 'glusterfs'
       #    - 'rpc-bind'
       #    - 'rpc2portmap'
 - name: Firewall ports allow

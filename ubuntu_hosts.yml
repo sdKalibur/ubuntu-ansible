@@ -8,8 +8,15 @@
 
        - name: Blacklisted app
          apt: name={{item}} state=absent
-         with_items:
+         vars:
+           item:
            - thunderbird
+       
+       - name: ansible dependancies
+         apt: name={{item}} state=latest
+         vars:
+           item:
+           - python-yaml
 
        - name: "apt check updates"
          apt: 
