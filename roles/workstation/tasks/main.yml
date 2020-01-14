@@ -9,13 +9,15 @@
     - evolution
 
 - name: Install Snap apps
-  #  snap:  name={{item}}  state=present classic=yes
+  snap:  
+    state: present 
+    classic: yes
   #  vars:
-  shell:
-    cmd: sudo snap install {{items}} --classic
-  vars:
-    items:
-      - mysql-workbench
+  #  shell:
+  # cmd: sudo snap install {{items}} --classic
+  # vars:
+    name:
+            #      - mysql-workbench
       - pycharm-community
       - jupyter
       - code

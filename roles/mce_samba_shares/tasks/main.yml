@@ -1,14 +1,18 @@
 ---
 - name: setup samba and shares for MCE
-  #  hosts: mce
   template: 
-    src: etc/samba/smb.conf.j2 
-    dest: /etc/samba/smb.conf
-    owner: root
-    group: root
+    src: 'etc/samba/smb.conf.j2'
+    dest: '/etc/samba/smb.conf'
+    owner: 'root'
+    group: 'root'
     mode: 0644
+    force: yes
+    register: smb_conf
+
+- debug:
+    var: smb_config
+    
   notify:
     - restart nmbd
     - restart smbd
-    
-
+-
