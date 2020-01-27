@@ -1,7 +1,7 @@
 ---
    - hosts: ubuntu
      become: yes
-     #     become_user: kalibur
+     become_user: root
      #     ask_become_pass: yes
      tasks:
        - name: Ensure Aptitude is present
@@ -28,6 +28,11 @@
            # upgrade: full
            upgrade: dist
 
+       - name: Remove unused obsolute apps
+         apt: name={{items}}  state=absent
+         vars:
+           items:
+             - nfs-kernel-server
 
        - name: "Install utilities"
          apt: name={{item}}  state=latest
@@ -39,7 +44,6 @@
            - vim
            - sysstat
            - bash-completion
-           - python-optcomplete
            - exfat-utils
            - exfat-fuse
            - samba
@@ -117,24 +121,28 @@
              #           - { name: 'editor',path: '/usr/bin/vim' }
          when: ansible_os_family == 'Debian'
    - hosts: kalibur-mce 
+     become: yes
      roles: 
        - mce_samba_shares
    - hosts: kal-inspiron, kal-xt3, kalibur-mce
+     become: yes
      roles:
        - workstation
    - hosts: all
+     become: yes
      roles: 
        - gluster_clients
          #  - mce_samba_shares
        - kodi
    - hosts: kal-xt3, kalibur-mce, kal-inspiron
+     become: yes
      roles:
        - devops
    - hosts: kalibur-mce
+     become: yes
      roles:
        - mythtv
    - hosts: kal-bunker, kal-xt3, kal-inspiron
+     become: yes
      roles:
        - samba_std
-         #   - include: kal-labs/ubuntu-ansible/roles/samba_std/vars/"{{ hostvars[inventory_hostname].ansible_hostname }}".yml
-         #- include_vars: "roles/samba_std/vars/{{ ansible_hostname }}".yml 

@@ -17,17 +17,6 @@ samba_shares:
   writable: "no"
 #  force_user: "kalibur"
 
-  #- name: movies
-  #comment: "Movies and Films"
-  #directory: '/media/'
-  #browseable: "yes"
-  #folder_perms: "0755"
-  #group: kalibur
-  #guest_ok: "yes"
-  #owner: kalibur
-  #read_only: "yes"
-  #writable: "no"
-
 - name: audios
   comment: 'Music, Audiobooks, etc'
   directory: '/media/'

@@ -53,7 +53,7 @@
     - '24007-24100/udp'
     - '45000-50000/udp'
 
-  notify: # Reload firewalld
-  #shell: "firewall-cmd --reload"
-    - firewalld reload
+      #  notify: # Reload firewalld
+  shell: "firewall-cmd --reload"
+  #    - firewalld reload
   ignore_errors: True

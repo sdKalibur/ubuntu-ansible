@@ -1,16 +1,16 @@
 ---
 - name: setup samba and shares for MCE
   template: 
-    src: 'etc/samba/smb.conf.j2'
-    dest: '/etc/samba/smb.conf'
+    src: etc/samba/smb.conf.j2
+    dest: /etc/samba/smb.conf
     owner: 'root'
     group: 'root'
-    mode: 0644
+    mode: 644
     force: yes
-    register: smb_conf
+    #    register: smb_conf
 
-- debug:
-    var: smb_config
+    #- debug:
+    # var: smb_config
     
   notify:
     - restart nmbd

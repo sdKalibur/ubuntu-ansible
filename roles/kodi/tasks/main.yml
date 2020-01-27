@@ -22,7 +22,6 @@
     - libva2
     - libva-x11-2
     - vdpauinfo
-    - vdpau-va-driver
     - minidlna
     - ubuntu-restricted-addons
     - ubuntu-restricted-extras
