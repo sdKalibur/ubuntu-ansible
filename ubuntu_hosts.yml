@@ -83,7 +83,7 @@
              - samba-common
              - mailutils
              - mutt
-             - nfs-kernel-server
+               # - nfs-kernel-server
              - curl
              - wget
          become: yes 

@@ -5,6 +5,6 @@
          #  when: "'gluster-servers' in {{grouup_names}}"
       apt: name={{item}} state=latest
       with_items:
-        - glusterfs-server
-        - nfs-common
-        - nfs-kernel-server
+              #        - glusterfs-server
+              #        - nfs-common
+              #        - nfs-kernel-server

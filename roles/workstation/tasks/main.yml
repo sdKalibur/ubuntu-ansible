@@ -86,6 +86,9 @@
     - matplotlib
     - pandas
     - jupyter
+    - wordcloud
+    - fileupload
+    - ipywidgets
 
 - name: DevOps Utils
   apt: name={{items}} state=latest
@@ -102,7 +105,7 @@
     block: |
      # Ansible populated
       10.42.0.206        kal-inspiron    kal-inspiron.kal-net.home
-      10.42.0.204        kal-xt3    kal-xt3.kal-net.home
+      10.42.0.215        kal-xt3    kal-xt3.kal-net.home
       10.42.0.2          kalibur-mce    kalibur-mce.kal-net.home
       10.42.0.30         kal-bunker    kal-bunker.kal-net.home
       10.42.0.80         kal-ninja   kal-ninja.kal-net.home
