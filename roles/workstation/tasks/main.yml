@@ -21,6 +21,7 @@
       - pycharm-community
       - jupyter
       - code
+      - atom
   register: my_snap
   ignore_errors: false
 
