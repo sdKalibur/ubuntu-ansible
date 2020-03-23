@@ -12,7 +12,7 @@
   snap:  
     state: present 
     classic: yes
-   name:
+    name:
             #      - mysql-workbench
       - pycharm-community
       - jupyter
