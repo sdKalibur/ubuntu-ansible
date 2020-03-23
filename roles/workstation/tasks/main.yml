@@ -12,16 +12,15 @@
   snap:  
     state: present 
     classic: yes
-  #  vars:
-  #  shell:
-  # cmd: sudo snap install {{items}} --classic
-  # vars:
-    name:
+   name:
             #      - mysql-workbench
       - pycharm-community
       - jupyter
       - code
       - atom
+      - photogimp
+      - gimp
+      - inkscape
   register: my_snap
   ignore_errors: false
 
