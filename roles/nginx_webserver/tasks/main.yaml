@@ -1,0 +1,9 @@
+---
+- name: Install nginx
+  apt:
+    - name:
+        - {{packages}}
+    - state: latest
+    vars:
+      packages:
+        - 'nginx'
