@@ -134,10 +134,11 @@
        - gluster_clients
          #  - mce_samba_shares
        - kodi
-   - hosts: kal-xt3, kalibur-mce, kal-inspiron
+   - hosts: kalibur-mce, kal-inspiron
      become: yes
      roles:
        - devops
+       - nginx_webserver
    - hosts: kalibur-mce
      become: yes
      roles:
