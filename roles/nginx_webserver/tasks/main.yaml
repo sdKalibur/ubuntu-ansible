@@ -1,5 +1,5 @@
 ---
-- name: Install nginx webserver
+- name: Install Nginx Webserver
   apt: name="{{packages}}" state=latest
   vars:
     packages:
