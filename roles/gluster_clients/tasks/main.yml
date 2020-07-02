@@ -30,7 +30,7 @@
       #    - 'rpc-bind'
       #    - 'rpc2portmap'
 - name: Firewall ports allow
-  shell: "firewall-cmd --add-port={{item}} --permanent"
+  shell: "firewall-cmd --add-port={{ item }} --permanent"
   with_items:
     - '8080/tcp'
     - '8080/udp'
@@ -52,7 +52,7 @@
     - '24007-24100/udp'
     - '45000-50000/udp'
 
-      #  notify: # Reload firewalld
+- name: Reload firewalld  
   shell: "firewall-cmd --reload"
   #    - firewalld reload
   ignore_errors: True

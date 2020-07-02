@@ -32,6 +32,7 @@
   vars:
     items:
     - lvm2
+    - trickle
     - rsync
     - htop
     - ansible
@@ -113,7 +114,16 @@
       10.42.0.201        mac-rhel  mac-rhel.kal-net.home
       #    state: present 
     backup: yes 
-    #    create: yes
+    create: yes
+    #
+- name: Debuffing and troubleshooting tools
+  apt: name={{pkgs}} state=latest
+  vars:
+     pkgs:
+       - systemtap-sdt-dev
+       -  
+
+
 - name: Security
   apt: name={{items}} state=latest
   vars:

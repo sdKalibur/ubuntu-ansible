@@ -147,3 +147,8 @@
      become: yes
      roles:
        - samba_std
+
+   - hosts: kal-xt3, kal-inspiron
+     become: yes
+     roles:
+       - laptop
