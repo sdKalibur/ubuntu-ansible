@@ -12,27 +12,28 @@
 #    - kodi-bin
       #    - kodi-data
 - name: Install kodi
-  apt: name={{item}} state=latest
-  with_items:
-    - kodi
-      #    - kodi-repository-kodi
-    - kodi-visualization-projectm
-    - mplayer
-    - vlc
-    - libva2
-    - libva-x11-2
-    - vdpauinfo
-    - minidlna
-    - ubuntu-restricted-addons
-    - ubuntu-restricted-extras
-    - xine-ui
-    - gstreamer1.0-pulseaudio
-    - gstreamer1.0-plugins-ugly
-    - gstreamer1.0-vaapi
-    - gstreamer1.0-alsa
-    - totem 
-    - mediainfo-gui
-    - qmmp
+  apt: name={{ items }} state=latest
+  items:
+    vars:
+      - kodi
+        #    - kodi-repository-kodi
+      - kodi-visualization-projectm
+      - mplayer
+      - vlc
+      - libva2
+      - libva-x11-2
+      - vdpauinfo
+      - minidlna
+      - ubuntu-restricted-addons
+      - ubuntu-restricted-extras
+      - xine-ui
+      - gstreamer1.0-pulseaudio
+      - gstreamer1.0-plugins-ugly
+      - gstreamer1.0-vaapi
+      - gstreamer1.0-alsa
+      - totem 
+      - mediainfo-gui
+      - qmmp
       #    - mediatomb
 - name: Firewall config
   # not support due to this module using python2
