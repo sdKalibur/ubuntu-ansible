@@ -1,35 +1,28 @@
 ---
-- name: DevOps toolbox
-  #  tasks:
+- name: "DevOps toolbox"
+  #  hosts: kal-xt3
   apt: name={{item}} state=latest
   with_items:
-    - idle3
-    - python3
-    - python3-pip
-    - synaptic
-          #    - netbeans
-      #    - openjdk-9-jdk
-      #    - openjdk-9-jre
     - ansible
-      #    - "ansible-tower-cli"
-      #    - packer
+    - mysql-workbench
+    - rhc
+      #    - ansible-tower-cli
+    - packer
     - vim-syntax-docker
-      #    - whalebuilder
+    - systemd-docker
+    - whalebuilder
     - docker-compose
     - ctop
-      #    - cockpit-docker
-      #    - 'docker.io'
-      #    - 'vagrant'
-      #    - 'virtualbox'
-    - virt-goodies
-      #    - "default-jre"
-      #    - "default-jdk"
-    - virt-manager
-    - virt-top
-    - virtinst
-    - libvirt0
+    - cockpit-docker
+    - vim-syntax-docker
     - docker.io
-    - python3-docker
-    - docker
-  ignore_errors: True
-  register: result
+    - vagrant
+    - virtualbox
+    - virt-goodies
+    - xclip
+    - xsel
+    - runsnakerun
+    - python3-pprofile
+    - kcachegrind
+    - kcachegrind-converters
+    - pyprof2calltree
