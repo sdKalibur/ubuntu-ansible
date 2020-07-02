@@ -1,0 +1,8 @@
+---
+- name: Install laptop utils
+  apt: name={{items}} state=latest
+  vars:
+     items:
+        - powertop-1.13
+        - laptop-mode-tools
+        - sensors-applet
