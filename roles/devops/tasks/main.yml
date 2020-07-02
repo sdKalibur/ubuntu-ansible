@@ -4,7 +4,7 @@
   vars:
     items:
     - ansible
-    - mysql-workbench
+    - mysql-workbench-community 
     - rhc
       #    - ansible-tower-cli
     - packer
