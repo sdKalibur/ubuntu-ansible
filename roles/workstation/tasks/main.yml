@@ -121,8 +121,8 @@
   vars:
      pkgs:
        - systemtap-sdt-dev
-       -  
-
+       - linux-tools-common 
+       - apache2-utils
 
 - name: Security
   apt: name={{items}} state=latest

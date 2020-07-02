@@ -22,3 +22,8 @@
     - xclip
     - python3-pip
     - xsel
+    - runsnakerun
+    - python3-pprofile
+    - kcachegrind
+    - kcachegrind-converters
+    - pyprof2calltree
