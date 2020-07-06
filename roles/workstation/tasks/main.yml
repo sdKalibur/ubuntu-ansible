@@ -90,6 +90,7 @@
     - wordcloud
     - fileupload
     - ipywidgets
+    - psutil
 
 - name: DevOps Utils
   apt: name={{items}} state=latest
