@@ -3,17 +3,14 @@
   apt: name={{ items }} state=latest
   vars:
     items:
-    - ansible
-    - mysql-workbench-community 
+    - ansible 
     - rhc
       #    - ansible-tower-cli
     - packer
     - vim-syntax-docker
-    - systemd-docker
     - whalebuilder
     - docker-compose
     - ctop
-    - cockpit-docker
     - vim-syntax-docker
     - docker.io
     - vagrant
@@ -26,3 +23,5 @@
     - kcachegrind
     - kcachegrind-converters
     - pyprof2calltree
+    - azure-cli
+    - awscli

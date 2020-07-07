@@ -1,58 +1,52 @@
 ---
-- name: Add Kodi ppa repo
-  apt_repository: 
-     repo: 'ppa:team-xbmc/ppa'  
-     state: present
-     validate_certs: yes 
-     update_cache: yes
-     #- name: Remove ubuntu repo Kodi
-     #  apt: name={{items}} state=absent
-     #  with_items:
-# this one is probably harmless    - kodi
-#    - kodi-bin
-      #    - kodi-data
-- name: Install kodi
-  apt: name={{ items }} state=latest
-  items:
+  - name: Add Kodi ppa repo
+    apt_repository: 
+      repo: "ppa:team-xbmc/ppa"
+      state: present
+      validate_certs: yes 
+      update_cache: yes
+
+  - name: install kodi for real
+    apt: name={{ items }} state=latest
     vars:
-      - kodi
-        #    - kodi-repository-kodi
-      - kodi-visualization-projectm
-      - mplayer
-      - vlc
-      - libva2
-      - libva-x11-2
-      - vdpauinfo
-      - minidlna
-      - ubuntu-restricted-addons
-      - ubuntu-restricted-extras
-      - xine-ui
-      - gstreamer1.0-pulseaudio
-      - gstreamer1.0-plugins-ugly
-      - gstreamer1.0-vaapi
-      - gstreamer1.0-alsa
-      - totem 
-      - mediainfo-gui
-      - qmmp
-      #    - mediatomb
-- name: Firewall config
+      items:
+        - kodi
+        - 'kodi-visualization-projectm'
+        - mplayer
+        - vlc
+        - libva2
+        - 'libva-x11-2'
+        - vdpauinfo
+        - minidlna
+        - 'ubuntu-restricted-addons'
+        - 'ubuntu-restricted-extras'
+        - 'xine-ui'
+        - 'gstreamer1.0-pulseaudio'
+        - 'gstreamer1.0-plugins-ugly'
+        - 'gstreamer1.0-vaapi'
+        - 'gstreamer1.0-alsa'
+        - totem 
+        - 'mediainfo-gui'
+        - qmmp
+
+  - name: Firewall config
   # not support due to this module using python2
   # firewalld: service={{item}} permanent=yes immediate=yes state=enabled
-  shell: "firewall-cmd --add-service={{item}} --permanent"
-  with_items:
-    - 'http'
-    - 'https'
-- name: Firewall ports allow
-  shell: "firewall-cmd --add-port={{item}} --permanent"
-  with_items:
+    shell: "firewall-cmd --add-service={{ item }} --permanent"
+    with_items:
+      - 'http'
+      - 'https'
+  - name: Firewall ports allow
+    shell: "firewall-cmd --add-port={{ item }} --permanent"
+    with_items:
     - '8080/tcp'
     - '8080/udp'
     - '8200/tcp'
     - '8200/udp'
     - '6546/udp'
     - '6546/tcp'
-      #notify: 
-      #- restart firewalld
-    #handlers:
-- name: restart firewalld
-  service: name=firewalld state=reloaded
+ #notify: 
+ #- restart firewalld
+ #handlers:
+ #  - name: restart firewalld
+ #    service: name=firewalld state=reloaded
