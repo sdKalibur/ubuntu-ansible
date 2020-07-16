@@ -91,6 +91,7 @@
     - fileupload
     - ipywidgets
     - psutil
+    - antlr4-python3-runtime
 
 - name: DevOps Utils
   apt: name={{items}} state=latest
