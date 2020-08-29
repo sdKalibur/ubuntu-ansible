@@ -1,0 +1,7 @@
+---
+- name: Install Performance Co-Pilot
+  apt:  name={{pkgs}} state=latest
+  vars:
+    pkgs:
+      - pcp
+      - pcp-gui
