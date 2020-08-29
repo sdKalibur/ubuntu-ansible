@@ -152,3 +152,7 @@
      become: yes
      roles:
        - laptop
+  - hosts: kal-bunker, kal-inspiron, kalibur-mce
+    become: yes
+    roles:
+      - pcp_hosts
