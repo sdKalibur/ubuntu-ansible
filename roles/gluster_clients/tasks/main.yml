@@ -53,6 +53,6 @@
     - '45000-50000/udp'
 
 - name: Reload firewalld  
-  shell: "firewall-cmd --reload"
+  shell: "systemctl reload firewalld"
   #    - firewalld reload
   ignore_errors: True
