@@ -115,6 +115,7 @@
       10.42.0.80         kal-ninja   kal-ninja.kal-net.home
       10.42.0.89         ipa01    ipa01.kal-net.home
       10.42.0.201        mac-rhel  mac-rhel.kal-net.home
+      10.42.0.10         puppet01 puppet01.kal-net.home
       #    state: present 
     backup: yes 
     create: yes
