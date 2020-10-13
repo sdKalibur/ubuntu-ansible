@@ -152,7 +152,13 @@
      become: yes
      roles:
        - laptop
-  - hosts: kal-bunker, kal-inspiron, kalibur-mce
-    become: yes
-    roles:
-      - pcp_hosts
+
+   - hosts: kal-bunker, kal-inspiron, kalibur-mce
+     become: yes
+     roles:
+       - pcp_hosts
+
+   - hosts: puppet
+     become: yes
+     roles:
+       - puppet-masters

@@ -1,0 +1,6 @@
+---
+  hosts: all
+  name: Install puppet-master
+  pkg: name=puppet-master state=latest
+
+...
