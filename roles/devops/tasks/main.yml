@@ -25,3 +25,4 @@
     - pyprof2calltree
     - azure-cli
     - awscli
+    - puppet-master
