@@ -1,6 +1,5 @@
 ---
-  hosts: all
-  name: Install puppet-master
-  pkg: name=puppet-master state=latest
+- name: Install puppet-master
+  package: name=puppet-master state=latest
 
 ...
