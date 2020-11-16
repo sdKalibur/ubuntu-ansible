@@ -13,7 +13,6 @@
     state: present 
     classic: yes
     name:
-            #      - mysql-workbench
       - pycharm-community
       - jupyter
       - code
@@ -25,9 +24,16 @@
 
   register: my_snap
   ignore_errors: false
+- name: Remove snap terraform
+  snap: name=terraform state=absent
 
 - debug:
     msg: my_snap  
+- name: Add apt Key terraform
+  shell: 'curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
+
+- name: Add apt repo for terraform
+  shell: 'apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
 
 - name: System utils
   apt: name={{items}} state=latest
@@ -48,6 +54,7 @@
     - docker
     - mysql-utilities
     - fakeroot
+    - terraform
   ignore_errors: True
   register: result
 - name: Dev utils
@@ -55,7 +62,7 @@
   vars:
     items:
     - python3-pip
-    - python-pip
+      #    - python-pip
     - idle3
     - libmysqlclient-dev
     - default-libmysqlclient-dev
