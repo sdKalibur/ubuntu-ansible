@@ -30,10 +30,12 @@
 - debug:
     msg: my_snap  
 - name: Add apt Key terraform
-  shell: 'curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
+  shell: 'sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
 
-- name: Add apt repo for terraform
-  shell: 'apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
+- apt: update_cache=yes
+  
+#- name: Add apt repo for terraform
+#  shell: 'sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
 
 - name: System utils
   apt: name={{items}} state=latest
