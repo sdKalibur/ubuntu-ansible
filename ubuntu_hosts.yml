@@ -21,12 +21,13 @@
 
        - name: "apt check updates"
          apt: 
-         #      force_apt_get : yes
+           force_apt_get : yes
            update_cache: yes
            autoclean: yes
            autoremove: yes
-           # upgrade: full
-           upgrade: dist
+           upgrade: full
+           #upgrade: safe
+           install_recommends: yes 
 
        - name: Remove unused obsolute apps
          apt: name={{items}}  state=absent
@@ -43,6 +44,8 @@
            - at
            - vim
            - sysstat
+           - mlocate
+           - plocate
            - bash-completion
            - exfat-utils
            - exfat-fuse

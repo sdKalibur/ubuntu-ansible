@@ -24,8 +24,8 @@
 
   register: my_snap
   ignore_errors: false
-- name: Remove snap terraform
-  snap: name=terraform state=absent
+  #- name: Remove snap terraform
+  # snap: name=terraform state=absent
 
 - debug:
     msg: my_snap  
