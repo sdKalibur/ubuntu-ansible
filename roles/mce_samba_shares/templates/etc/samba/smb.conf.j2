@@ -43,6 +43,7 @@
     directory mask = {{item.folder_perms}}
     browseable = {{ item.browseable|lower }}
     guest ok = {{ item.guest_ok|lower }}
+    writable = {{ item.writable|lower }}
 
 {% if item.read_only is defined %}
     read only = {{item.read_only|lower}}

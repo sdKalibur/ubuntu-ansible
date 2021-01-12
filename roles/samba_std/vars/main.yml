@@ -2,7 +2,7 @@
 work_group: 'KAL-NET'
 server_string : '%h samba share Kal-net'
 usershare_allow_guests : "yes"
-security: "user"
+security: "server"
 
 samba_shares:
 - name: Videos
@@ -19,4 +19,3 @@ samba_shares:
   browseable: "yes"
   folder_perms: 744
   guest_ok: "yes"
-  read_only: "yes"

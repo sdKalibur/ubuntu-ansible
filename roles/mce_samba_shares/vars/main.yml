@@ -1,27 +1,27 @@
 ---
-work_group: 'KAL-NET'
+work_group: "KAL-NET"
 server_string : '%h samba share server  (Samba, Ubuntu)'
 usershare_allow_guests : "yes"
-security: "user"
+security: "server"
 
 samba_shares:
 - name: Films
   comment: 'Movies and Films'
   directory: '/media/movies/'
   browseable: "yes"
-  folder_perms: "0755"
+  folder_perms: "755"
   group: kalibur
   guest_ok: "yes"
   owner: kalibur
   read_only: "yes"
-  writable: "no"
-#  force_user: "kalibur"
+  writable: "yes"
+  force_user: "kalibur"
 
 - name: audios
   comment: 'Music, Audiobooks, etc'
   directory: '/media/'
   browseable: "yes"
-  folder_perms: "0755"
+  folder_perms: "755"
   group: kalibur
   guest_ok: "yes"
   owner: kalibur
@@ -32,7 +32,7 @@ samba_shares:
   comment: 'Fresh arrivals'
   directory: '/media/'
   browseable: "yes"
-  folder_perms: "0755"
+  folder_perms: "755"
   group: kalibur
   guest_ok: "yes"
   owner: kalibur
