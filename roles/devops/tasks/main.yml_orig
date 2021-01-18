@@ -1,0 +1,4 @@
+---
+- name: Include OS-specific variables.
+  # hosts: kal-devops
+  include: devops_wk.yml
