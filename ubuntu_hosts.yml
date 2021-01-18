@@ -137,6 +137,13 @@
        - gluster_clients
          #  - mce_samba_shares
        - kodi
+
+   - hosts: puppet01, kal-inspiron
+     become: yes
+     roles: 
+       - nginx_webserver
+       - django-framework
+
    - hosts: kalibur-mce, kal-inspiron
      become: yes
      roles:
