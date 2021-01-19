@@ -1,14 +1,14 @@
 ---
-  tasks:
-    - name: Pip install django-framwork
-      pip: name={{packages}} state=latest
-      vars:
-        packages:
-          - Django
+- name: Pip install django-framwork
+  pip: name="{{packages}}" state=latest 
+  #executable=pip3
+  vars:
+    packages:
+      - Django
 
-    - name: Authentication utils
-      apt: name={{packages}} state=latest
-      vars:
-        packages:
-          - apache2-utilso
-          - nginx-extras
+- name: Authentication utils
+  apt: name="{{packages}}" state=latest
+  vars:
+    packages:
+      - apache2-utils
+      - nginx-extras
