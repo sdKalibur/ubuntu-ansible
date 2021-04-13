@@ -1,5 +1,9 @@
 ---
 - name: Install puppet-master
-  package: name=puppet-master state=latest
+  package: name={{ packages }} state=latest
+  vars:
+    packages:
+      - puppet-master
+      - r10k
 
 ...
