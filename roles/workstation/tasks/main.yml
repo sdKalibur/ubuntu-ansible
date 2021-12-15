@@ -69,6 +69,7 @@
     - libmysqlclient-dev
     - default-libmysqlclient-dev
     - retext
+    - puppet-agent
     - python3
     - python3-dev
       #    - mysql-workbench
@@ -119,13 +120,14 @@
     dest: /etc/hosts 
     block: |
      # Ansible populated
-      10.42.0.201        kal-inspiron    kal-inspiron.kal-net.home puppet
+      10.42.0.201        kal-inspiron    kal-inspiron.kal-net.home 
       10.42.0.215        kal-xt3    kal-xt3.kal-net.home
       10.42.0.2          kalibur-mce    kalibur-mce.kal-net.home
       10.42.0.30         kal-bunker    kal-bunker.kal-net.home
       10.42.0.80         kal-ninja   kal-ninja.kal-net.home
       10.42.0.89         ipa01    ipa01.kal-net.home
-      10.42.0.55         pup-centos01 pup-centos01.kal-net.home
+      10.42.0.55         puppet-agent
+      10.42.0.51         puppetserver
       10.42.0.10         puppet01 puppet01.kal-net.home
       # 10.42.0.200         puppet01 puppet01.kal-net.home
       #    state: present 

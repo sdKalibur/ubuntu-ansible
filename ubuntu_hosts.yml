@@ -64,6 +64,7 @@
            - tree
            - fatresize
            - fbset
+           - python3-pip
          ignore_errors: True
        - name: Enable sysstat
          replace:
@@ -86,6 +87,7 @@
              - samba-common
              - mailutils
              - mutt
+             - firewalld
                # - nfs-kernel-server
              - curl
              - wget
@@ -168,7 +170,13 @@
      roles:
        - pcp_hosts
 
-   - hosts: puppet
+   - hosts: all
      become: yes
-     roles:
-       - puppet-masters
+     tasks:
+       - name: Autoremove unwated packages
+         apt:  autoremove=yes
+      
+         #  - hosts: puppet, kal-inspiron
+         #     become: yes
+         #     roles:
+         #       - puppet-masters

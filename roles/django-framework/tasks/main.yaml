@@ -1,7 +1,6 @@
 ---
 - name: Pip install django-framwork
-  pip: name="{{packages}}" state=latest 
-  #executable=pip3
+  pip: name="{{packages}}" state=latest executable=pip3
   vars:
     packages:
       - Django

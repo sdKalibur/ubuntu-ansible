@@ -3,7 +3,7 @@
   package: name={{ packages }} state=latest
   vars:
     packages:
-      - puppet-master
+      - puppetserver
       - r10k
 
 ...
