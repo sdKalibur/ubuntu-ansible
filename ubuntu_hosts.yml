@@ -1,6 +1,8 @@
 ---
    - hosts: ubuntu
      become: yes
+     strategy: free
+     any_errors_fatal: true
      become_user: root
      #     ask_become_pass: yes
      tasks:
@@ -21,7 +23,7 @@
 
        - name: "apt check updates"
          apt: 
-           force_apt_get : yes
+           #           force_apt_get : yes
            update_cache: yes
            autoclean: yes
            autoremove: yes
@@ -96,7 +98,7 @@
        - name: "Security protection utils"
          apt: 
          #        state: latest
-           update_cache: yes
+         #  update_cache: yes
            name: "{{items}}"
          vars:
            items:
@@ -117,7 +119,6 @@
          with_items:
                  #           - mariadb-client
            - mariadb-server
-           - rhc
        - name: update alternatives
          #         alternatives: name={{item}} path={{item}}
          shell: 'update-alternatives --set editor   /usr/bin/vim.basic'
@@ -129,7 +130,7 @@
      become: yes
      roles: 
        - mce_samba_shares
-   - hosts: kal-inspiron, kal-xt3, kalibur-mce
+   - hosts: kal-inspiron, kal-xt3, kal-bunker
      become: yes
      roles:
        - workstation
