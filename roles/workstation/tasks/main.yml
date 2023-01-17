@@ -118,29 +118,29 @@
   register: result
 - name: "hosts file"
   blockinfile: 
-    dest: /etc/hosts 
-    block: |
-     # Ansible populated
-      10.42.0.201        kal-inspiron    kal-inspiron.kal-net.home 
-      # 10.42.0.215        kal-xt3    kal-xt3.kal-net.home
-      10.42.0.2          kalibur-mce    kalibur-mce.kal-net.home
-      10.42.0.30         kal-bunker    kal-bunker.kal-net.home
-      #10.42.0.80         kal-ninja   kal-ninja.kal-net.home
-      10.42.0.89         ipa01    ipa01.kal-net.home
-      10.42.0.55         puppet-agent
-      10.42.0.51         puppetserver
-      10.42.0.10         puppet01 puppet01.kal-net.home
-      # 10.42.0.200         puppet01 puppet01.kal-net.home
     backup: yes 
     create: yes
-    #
-- name: Debuffing and troubleshooting tools
+    dest: /etc/hosts 
+    #insertafter: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+    block: |
+      {{ item.ip }} {{ item.name }}
+    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+  loop:
+    - { ip: 10.42.0.201, name: kal-inspiron kal-inspiron.kal-net.home }
+    - { ip: 10.42.0.215, name: kal-xt3    kal-xt3.kal-net.home }
+    - { ip: 10.42.0.2, name: kalibur-mce    kalibur-mce.kal-net.home }
+    - { ip: 10.42.0.30, name: kal-bunker    kal-bunker.kal-net.home }
+    - { ip: 10.42.0.25, name: kal-bunker2    kal-bunker2.kal-net.home }
+    - { ip: 10.42.0.89, name: ipa01    ipa01.kal-net.home }
+
+- name: Debugging and troubleshooting tools
   apt: name={{pkgs}} state=latest
   vars:
      pkgs:
        - systemtap-sdt-dev
        - linux-tools-common 
        - apache2-utils
+       - atop
 
 - name: Security
   apt: name={{items}} state=latest

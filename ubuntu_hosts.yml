@@ -130,7 +130,7 @@
      become: yes
      roles: 
        - mce_samba_shares
-   - hosts: kal-inspiron, kal-xt3, kal-bunker
+   - hosts: kal-inspiron, kal-bunker2
      become: yes
      roles:
        - workstation
@@ -171,13 +171,3 @@
      roles:
        - pcp_hosts
 
-   - hosts: all
-     become: yes
-     tasks:
-       - name: Autoremove unwated packages
-         apt:  autoremove=yes
-      
-         #  - hosts: puppet, kal-inspiron
-         #     become: yes
-         #     roles:
-         #       - puppet-masters

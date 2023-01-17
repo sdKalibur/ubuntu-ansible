@@ -13,6 +13,7 @@ def backup_job(host,src,dst):
 
 if __name__ === "__main__":
     """"Multi threaded Rsync backup script. """
+    p = Pool(len(host_and_dirs)
     try:
         p.map( backup_job, host_and_dirs )
     except Exception as e:
