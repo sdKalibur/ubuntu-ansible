@@ -36,7 +36,7 @@
          vars:
            items:
              - nfs-kernel-server
-
+             - xymon-client
        - name: "Install utilities"
          apt: name={{item}}  state=latest
          with_items:
@@ -49,8 +49,6 @@
            - mlocate
            - plocate
            - bash-completion
-           - exfat-utils
-           - exfat-fuse
            - samba
            - libpam-mount
            - gnome-system-tools
@@ -106,19 +104,10 @@
              - firewalld
              - rsnapshot
              - iptables
-             - xymon-client
              - aide
              - cryptsetup
              - apparmor-utils
-             #       - name:  Apparmor complain only
-             #         shell: 'aa-complain /usr/sbin/{{item}}'
-             #         with_items:
-             #           - mysqld
-       - name: "LAMP utils"
-         apt: name={{item}} state=latest
-         with_items:
-                 #           - mariadb-client
-           - mariadb-server
+
        - name: update alternatives
          #         alternatives: name={{item}} path={{item}}
          shell: 'update-alternatives --set editor   /usr/bin/vim.basic'
@@ -130,18 +119,18 @@
      become: yes
      roles: 
        - mce_samba_shares
+       - kodi
    - hosts: kal-inspiron, kal-bunker2
      become: yes
      roles:
        - workstation
+
    - hosts: all
      become: yes
      roles: 
        - gluster_clients
-         #  - mce_samba_shares
-       - kodi
-
-   - hosts: puppet01, kal-inspiron
+     
+   - hosts: kal-inspiron, kalimg
      become: yes
      roles: 
        - nginx_webserver
@@ -156,12 +145,12 @@
      become: yes
      roles:
        - mythtv
-   - hosts: kal-bunker, kal-xt3, kal-inspiron
+   - hosts: kal-bunker, kal-inspiron
      become: yes
      roles:
        - samba_std
 
-   - hosts: kal-xt3, kal-inspiron
+   - hosts: kal-inspiron
      become: yes
      roles:
        - laptop

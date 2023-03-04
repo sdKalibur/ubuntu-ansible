@@ -1,6 +1,6 @@
 ---
 - name: Install Performance Co-Pilot
-  apt:  name={{pkgs}} state=latest
+  apt:  name={{pkgs}} state=absent
   vars:
     pkgs:
       - pcp

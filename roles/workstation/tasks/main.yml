@@ -131,7 +131,7 @@
     - { ip: 10.42.0.2, name: kalibur-mce    kalibur-mce.kal-net.home }
     - { ip: 10.42.0.30, name: kal-bunker    kal-bunker.kal-net.home }
     - { ip: 10.42.0.25, name: kal-bunker2    kal-bunker2.kal-net.home }
-    - { ip: 10.42.0.89, name: ipa01    ipa01.kal-net.home }
+    - { ip: 10.42.0.8, name:  kalimg      kalimg.kal-net.home }
 
 - name: Debugging and troubleshooting tools
   apt: name={{pkgs}} state=latest

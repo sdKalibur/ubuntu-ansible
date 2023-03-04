@@ -1,8 +1,7 @@
 ---
 - name: DevOps toolbox
-  apt: name={{ items }} state=latest
-  vars:
-    items:
+  apt: name={{ item }} state=latest
+  loop:
     - ansible 
       #    - ansible-tower-cli
     - packer
@@ -25,3 +24,13 @@
     - azure-cli
     - awscli
       #    - puppetserver
+
+- name: Python utils
+  pip: 
+    name={{ vars}} 
+    state=latest
+  loop:
+    - flask
+    - flask_sqlalchemy
+    - flask_migrate
+    - flask_cors
