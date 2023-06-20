@@ -8,7 +8,7 @@
     - vim-syntax-docker
     - whalebuilder
     - docker-compose
-    - ctop
+      #    - ctop
     - vim-syntax-docker
     - docker.io
     - vagrant
@@ -21,7 +21,7 @@
     - kcachegrind
     - kcachegrind-converters
     - pyprof2calltree
-    - azure-cli
+      #    - azure-cli
     - awscli
       #    - puppetserver
 

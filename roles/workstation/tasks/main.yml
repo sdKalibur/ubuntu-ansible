@@ -47,7 +47,6 @@
     - rsync
     - htop
     - ansible
-    - ctop
     - virt-goodies
     - virt-manager
     - virt-top
@@ -69,43 +68,7 @@
     - libmysqlclient-dev
     - default-libmysqlclient-dev
     - retext
-    - puppet-agent
-    - python3
-    - python3-dev
-      #    - mysql-workbench
-      # - vim-syntax-docker
-    - python3-pip
-  ignore_errors: True
-- name: Pip installs
-  pip:  name={{items}} state=latest 
-    #executable=pip3
-  vars:
-    items:
-    - Mediainfo
-    - pymediainfo
-    - pymiparse
-    - ansible-playbook-grapher
-    - ansible-inventory-grapher
-    - gperf
-    - sadf
-    - gperf
-    - virtualenv
-    - virtualenvwrapper
-    - pytz
-    - django
-    - pymysql
-    - django-mysql-pymysql
-    - pymysql-utils
-    - mysqlclient
-    - paramiko
-    - matplotlib
-    - pandas
-    - jupyter
-    - wordcloud
-    - fileupload
-    - ipywidgets
-    - psutil
-    - antlr4-python3-runtime
+    ignore_errors: True
 
 - name: DevOps Utils
   apt: name={{items}} state=latest
@@ -113,7 +76,6 @@
     items:
     - ansible-lint
     - multipath-tools
-    - ansible-tower-cli
   ignore_errors: True
   register: result
 - name: "hosts file"
@@ -121,7 +83,8 @@
     backup: yes 
     create: yes
     dest: /etc/hosts 
-    #insertafter: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+    insertafter: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+      #    insertafter: "# {mark} KALNET-HOSTS"
     block: |
       {{ item.ip }} {{ item.name }}
     marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
@@ -132,6 +95,7 @@
     - { ip: 10.42.0.30, name: kal-bunker    kal-bunker.kal-net.home }
     - { ip: 10.42.0.25, name: kal-bunker2    kal-bunker2.kal-net.home }
     - { ip: 10.42.0.8, name:  kalimg      kalimg.kal-net.home }
+    - { ip: 10.42.0.40, name: kal-5825u kal-5825u.kal-net.home }
 
 - name: Debugging and troubleshooting tools
   apt: name={{pkgs}} state=latest

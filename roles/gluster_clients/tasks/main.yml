@@ -8,6 +8,7 @@
     - nfs-ganesha
     - nfs-ganesha-gluster
     - uwsgi-plugin-glusterfs
+    - glusterfs-server
 
       #- name: Volume mounts
 

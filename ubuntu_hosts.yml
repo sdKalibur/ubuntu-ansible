@@ -20,6 +20,8 @@
          vars:
            item:
              # - python-yaml
+       - name: Snap to keep only two verions.
+         command: 'snap set system refresh.retain=2'
 
        - name: "apt check updates"
          apt: 
@@ -65,6 +67,7 @@
            - fatresize
            - fbset
            - python3-pip
+           - net-tools
          ignore_errors: True
        - name: Enable sysstat
          replace:
@@ -120,7 +123,7 @@
      roles: 
        - mce_samba_shares
        - kodi
-   - hosts: kal-inspiron, kal-bunker2
+   - hosts: kal-5825u kal-inspiron kal-bunker2 kalibur-mce
      become: yes
      roles:
        - workstation
@@ -150,12 +153,12 @@
      roles:
        - samba_std
 
-   - hosts: kal-inspiron
+   - hosts: kal-inspiron, kal-5825u
      become: yes
      roles:
        - laptop
 
-   - hosts: kal-bunker, kal-inspiron, kalibur-mce
+   - hosts: kal-bunker
      become: yes
      roles:
        - pcp_hosts
