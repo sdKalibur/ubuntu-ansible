@@ -31,6 +31,7 @@
   - name: Remove old mce apps
     apt: name={{ items }} state=absent
     vars:
+      items:
       - kodi
       - kodi-visualization-projectm
 
