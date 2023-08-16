@@ -66,7 +66,6 @@
            - tree
            - fatresize
            - fbset
-           - python3-pip
            - net-tools
          ignore_errors: True
        - name: Enable sysstat
@@ -123,7 +122,7 @@
      roles: 
        - mce_samba_shares
        - kodi
-   - hosts: kal-5825u kal-inspiron kal-bunker2 kalibur-mce
+   - hosts: kal-5825u kal-inspiron kal-bunker2
      become: yes
      roles:
        - workstation
@@ -133,21 +132,17 @@
      roles: 
        - gluster_clients
      
-   - hosts: kal-inspiron, kalimg
+   - hosts: kal-inspiron, kal-5825u
      become: yes
      roles: 
        - nginx_webserver
        - django-framework
 
-   - hosts: kalibur-mce, kal-inspiron
+   - hosts: kal-5825u, kal-inspiron
      become: yes
      roles:
        - devops
        - nginx_webserver
-   - hosts: kalibur-mce
-     become: yes
-     roles:
-       - mythtv
    - hosts: kal-bunker, kal-inspiron
      become: yes
      roles:

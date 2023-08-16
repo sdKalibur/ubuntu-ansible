@@ -10,8 +10,8 @@
     apt: name={{ items }} state=latest
     vars:
       items:
-        - kodi
-        - 'kodi-visualization-projectm'
+        #- kodi
+        #- 'kodi-visualization-projectm'
         - mplayer
         - vlc
         - libva2
@@ -28,6 +28,11 @@
         - totem 
         - 'mediainfo-gui'
         - qmmp
+  - name: Remove old mce apps
+    apt: name={{ items }} state=absent
+    vars:
+      - kodi
+      - kodi-visualization-projectm
 
   - name: Firewall config
   # not support due to this module using python2
