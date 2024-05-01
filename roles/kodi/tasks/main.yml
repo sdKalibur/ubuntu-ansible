@@ -2,7 +2,7 @@
   - name: Add Kodi ppa repo
     apt_repository: 
       repo: "ppa:team-xbmc/ppa"
-      state: present
+      state: absent
       validate_certs: yes 
       update_cache: yes
 

@@ -48,7 +48,6 @@
            - at
            - vim
            - sysstat
-           - mlocate
            - plocate
            - bash-completion
            - samba
@@ -90,7 +89,7 @@
              - mailutils
              - mutt
              - firewalld
-               # - nfs-kernel-server
+             - ncal
              - curl
              - wget
          become: yes 
@@ -117,12 +116,12 @@
            - { 'editor', '/usr/bin/vim' }
              #           - { name: 'editor',path: '/usr/bin/vim' }
          when: ansible_os_family == 'Debian'
-   - hosts: kalibur-mce 
+   - hosts: kalibur-mce kal-zen
      become: yes
      roles: 
        - mce_samba_shares
        - kodi
-   - hosts: kal-5825u kal-inspiron kal-bunker2
+   - hosts: kal-5825u kal-zen kal-bunker2 kalibur-mce
      become: yes
      roles:
        - workstation
@@ -132,18 +131,14 @@
      roles: 
        - gluster_clients
      
-   - hosts: kal-inspiron, kal-5825u
+   - hosts: kal-zen kal-5825u
      become: yes
      roles: 
        - nginx_webserver
-       - django-framework
-
-   - hosts: kal-5825u, kal-inspiron
-     become: yes
-     roles:
+       - minikube
        - devops
-       - nginx_webserver
-   - hosts: kal-bunker, kal-inspiron
+
+   - hosts: kal-bunker, kal-inspiron kal-zen
      become: yes
      roles:
        - samba_std
@@ -152,9 +147,3 @@
      become: yes
      roles:
        - laptop
-
-   - hosts: kal-bunker
-     become: yes
-     roles:
-       - pcp_hosts
-

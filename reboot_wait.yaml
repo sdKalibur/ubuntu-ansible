@@ -1,0 +1,19 @@
+---
+- name: Reboot and wait
+  become: true
+  hosts: all
+  gather_facts: true
+  tasks:
+    - name: Get host name of exec host
+      set_fact:
+        ansible_hostname: "{{ ansible_host }}"
+    - name: Reboot hosts
+      reboot:
+      when: '"kal-5825u" not in ansible_host'
+
+    - name: Wait for host
+      wait_for_connection:
+        delay: 600
+
+    - name: Uptime
+      shell: 'uptime -p; w'

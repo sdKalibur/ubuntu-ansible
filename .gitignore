@@ -1,4 +1,5 @@
 *.retry
 *.swp
 secrets.ym*l
-
+hosts
+inventory

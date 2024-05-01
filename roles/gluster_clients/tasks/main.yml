@@ -28,8 +28,6 @@
     - 'https'
     - 'mountd'
     - 'glusterfs'
-    - 'dlna'
-    - 'upnp'
 - name: Firewall ports allow
   shell: "firewall-cmd --add-port={{ item }} --permanent"
   with_items:

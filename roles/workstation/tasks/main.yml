@@ -1,8 +1,9 @@
 ---
 - name: Desktop apps
-  apt: name={{items}}  state=latest
-  vars:
-    items:
+  apt: 
+    name: "{{ item }}" 
+    state: latest
+  loop:
     - transmission
     - libreoffice
     - konversation
@@ -23,7 +24,7 @@
       - google-cloud-sdk
 
   register: my_snap
-  ignore_errors: false
+  ignore_errors: true
   #- name: Remove snap terraform
   # snap: name=terraform state=absent
 
@@ -31,11 +32,7 @@
     msg: my_snap  
 - name: Add apt Key terraform
   shell: 'sudo curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -'
-
-- apt: update_cache=yes
-  
-#- name: Add apt repo for terraform
-#  shell: 'sudo apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"'
+  ignore_errors: yes
 
 - name: System utils
   apt: name={{items}} state=latest
@@ -47,12 +44,10 @@
     - rsync
     - htop
     - ansible
-    - virt-goodies
     - virt-manager
     - virt-top
     - virtinst
     - docker.io
-    - docker
     - mysql-utilities
     - fakeroot
     - terraform
@@ -62,8 +57,6 @@
   apt: name={{items}} state=latest
   vars:
     items:
-      # - python3-pip
-      #    - python-pip
     - idle3
     - libmysqlclient-dev
     - default-libmysqlclient-dev
@@ -71,31 +64,36 @@
     ignore_errors: True
 
 - name: DevOps Utils
-  apt: name={{items}} state=latest
-  vars:
-    items:
+  apt: name="{{item}}" state=latest
+  loop:
     - ansible-lint
     - multipath-tools
   ignore_errors: True
   register: result
-- name: "hosts file"
-  blockinfile: 
-    backup: yes 
-    create: yes
+
+- name: Remove dirty hosts file
+  lineinfile:
     dest: /etc/hosts 
-    insertafter: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
-      #    insertafter: "# {mark} KALNET-HOSTS"
-    block: |
-      {{ item.ip }} {{ item.name }}
-    marker: "# {mark} ANSIBLE MANAGED BLOCK {{ item.name }}"
+    regex: "^#.*ANSIBLE MANAGED.*$"
+    state: absent
+
+- name: Etc hosts file
+  lineinfile:
+    state: present
+    insertafter: EOF
+    backup: true
+    dest: /etc/hosts
+    regex: '"{{ item.host }}"\s'
+    line: "{{ item.ip }} {{ item.host }} {{ item.alias }}"
   loop:
-    - { ip: 10.42.0.201, name: kal-inspiron kal-inspiron.kal-net.home }
-    - { ip: 10.42.0.215, name: kal-xt3    kal-xt3.kal-net.home }
-    - { ip: 10.42.0.2, name: kalibur-mce    kalibur-mce.kal-net.home }
-    - { ip: 10.42.0.30, name: kal-bunker    kal-bunker.kal-net.home }
-    - { ip: 10.42.0.25, name: kal-bunker2    kal-bunker2.kal-net.home }
-    - { ip: 10.42.0.8, name:  kalimg      kalimg.kal-net.home }
-    - { ip: 10.42.0.40, name: kal-5825u kal-5825u.kal-net.home }
+    - { ip: '10.42.0.201', host: kal-inspiron, alias: 'kal-inspiron.kal-net.home' }
+    - { ip: '10.42.0.215', host: kal-xt3,    alias: 'kal-xt3.kal-net.home' }
+    - { ip: '10.42.0.22', host: kal-zen,    alias: 'kal-zen.kal-net.home' }
+    - { ip: '10.42.0.2', host: kalibur-mce,    alias: 'kalibur-mce.kal-net.home' }
+    - { ip: '10.42.0.30', host: kal-bunker,    alias: 'kal-bunker.kal-net.home' }
+    - { ip: '10.42.0.25', host: kal-bunker2,    alias: 'kal-bunker2.kal-net.home' }
+    - { ip: '10.42.0.8', host:  kalimg,      alias: 'kalimg.kal-net.home' }
+    - { ip: '10.42.0.40', host: kal-5825u, alias: 'kal-5825u.kal-net.home' }
 
 - name: Debugging and troubleshooting tools
   apt: name={{pkgs}} state=latest
