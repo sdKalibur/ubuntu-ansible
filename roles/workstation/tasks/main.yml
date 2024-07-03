@@ -40,7 +40,6 @@
     items:
     - lvm2
     - elinks
-    - trickle
     - rsync
     - htop
     - ansible
@@ -48,9 +47,8 @@
     - virt-top
     - virtinst
     - docker.io
-    - mysql-utilities
     - fakeroot
-    - terraform
+      #- terraform
   ignore_errors: True
   register: result
 - name: Dev utils

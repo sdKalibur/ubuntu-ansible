@@ -4,7 +4,6 @@
   loop:
     - ansible 
       #    - ansible-tower-cli
-    - packer
     - vim-syntax-docker
     - whalebuilder
     - docker-compose
@@ -22,15 +21,4 @@
     - kcachegrind-converters
     - pyprof2calltree
       #    - azure-cli
-    - awscli
-      #    - puppetserver
-
-- name: Python utils
-  pip: 
-    name={{ vars}} 
-    state=latest
-  loop:
-    - flask
-    - flask_sqlalchemy
-    - flask_migrate
-    - flask_cors
+      #    - awscli

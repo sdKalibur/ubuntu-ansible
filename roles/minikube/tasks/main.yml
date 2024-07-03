@@ -8,14 +8,12 @@
     - curl
     - apt-transport-https
     - ca-certificates
+    - containerd
 - name: Ensure we have /etc/opt/keyrings
   file:
     state: directory
     dest: /etc/opt/keyrings
     mode: 0755
-
-- name: Install keyring things
-  command: 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc && chmod a+r /etc/apt/keyrings/docker.asc'
 
 - name: Add Docker GPG key
   apt_key:
@@ -23,15 +21,16 @@
     state: present
 
 - name: Add docker repo
-  command: '#echo \
+  command: 'sudo install -m 0755 -d /etc/apt/keyrings'
+
+- command: 'sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc'
+- command: 'sudo chmod a+r /etc/apt/keyrings/docker.asc'
+
+- name: Add Docker repository
+  command: 'sudo echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
   $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null'
-
-- name: Add Docker repository
-  apt_repository:
-     repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu/dists/ $(lsb_release -cs) stable stable"
-     state: present
 
 - name: Update package lists again
   apt: 
@@ -51,37 +50,30 @@
 
 - name: Download Minikube binary
   get_url:
-    url: https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-    dest: /tmp/minikube-linux-amd64
-    mode: 0755
+    url: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+    dest: /tmp/minikube-linux-amd64.deb
 
 - name: Install Minikube
-  copy:
-    src: /tmp/minikube-linux-amd64
-    dest: /usr/local/bin/minikube
-    mode: 0755
+  command: sudo dpkg -i /tmp/minikube-linux-amd64.deb
 
 - name: Download kubectl binary
   get_url:
-    url: https://storage.googleapis.com/kubernetes/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl
+    url: https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
     dest: /tmp/kubectl
-    mode: 0755
+  
 - name: Create directory for kubectl if needed
   file:
     name: /usr/local/bin
     state: directory
     mode: 0755
-  register: result
+      #  register: result
 
 - name: Set permissions and move kubectl binary
-  command:  chmod +x /tmp/kubectl && mv /tmp/kubectl /usr/local/bin/
-  when: result.rc == 0
-
-- name: Start Minikube
-  command: 'minikube start'
+  command:  sudo chmod +x /tmp/kubectl
+- command:  sudo mv /tmp/kubectl /usr/local/bin/kubectl
+    #  when: result.rc == 0
 
 - name: Restart Docker after adding user to group
   service:
     name: docker
     state: restarted
-  when: changed
